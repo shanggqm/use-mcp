@@ -1,0 +1,49 @@
+{
+  "categories": [
+    {
+      "id": "official",
+      "name": "官方资源",
+      "icon": "book"
+    },
+    {
+      "id": "tools",
+      "name": "工具",
+      "icon": "wrench"
+    },
+    {
+      "id": "servers",
+      "name": "MCP Servers",
+      "icon": "server"
+    },
+    {
+      "id": "clients",
+      "name": "MCP Clients",
+      "icon": "monitor"
+    },
+    {
+      "id": "tutorials",
+      "name": "教程",
+      "icon": "graduation-cap"
+    }
+  ],
+  "items": [
+    {
+      "id": "mcp-spec",
+      "title": "MCP 官方规范",
+      "description": "Model Context Protocol 官方规范文档",
+      "url": "https://spec.modelcontextprotocol.io",
+      "category": "official",
+      "tags": ["官方", "规范"],
+      "featured": true
+    },
+    {
+      "id": "mcp-github",
+      "title": "MCP GitHub 仓库",
+      "description": "MCP 协议的官方 GitHub 仓库，包含 SDK 和示例",
+      "url": "https://github.com/modelcontextprotocol",
+      "category": "official",
+      "tags": ["官方", "开源"],
+      "featured": true
+    }
+  ]
+}
