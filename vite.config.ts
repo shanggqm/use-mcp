@@ -26,7 +26,7 @@ export default defineConfig({
       '@content': path.resolve(__dirname, './content'),
     },
   },
-  // 自定义域名部署配置
+  // 自定义域名 mcpuse.cn 部署，base 固定为 '/'
   base: '/',
   build: {
     outDir: 'dist',
