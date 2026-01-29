@@ -12,7 +12,7 @@ interface CardProps extends Omit<HTMLMotionProps<'div'>, 'children'> {
 const variantStyles = {
   glass: `
     bg-void-800/40 backdrop-blur-xl
-    border border-amber-500/10
+    border border-cyber-500/10
   `,
   solid: `
     bg-void-850
@@ -20,7 +20,7 @@ const variantStyles = {
   `,
   panel: `
     bg-void-850/60 backdrop-blur-xl
-    border border-amber-500/15
+    border border-cyber-500/15
     shadow-inner-glow
   `,
 };
@@ -38,12 +38,12 @@ const hoverVariants = {
     hover: { y: -8, boxShadow: '0 20px 40px rgba(0, 0, 0, 0.6)' },
   },
   glow: {
-    rest: { boxShadow: '0 0 0 rgba(245, 158, 11, 0)' },
-    hover: { boxShadow: '0 0 30px rgba(245, 158, 11, 0.2)' },
+    rest: { boxShadow: '0 0 0 rgba(14, 165, 233, 0)' },
+    hover: { boxShadow: '0 0 30px rgba(14, 165, 233, 0.2)' },
   },
   border: {
-    rest: { borderColor: 'rgba(245, 158, 11, 0.1)' },
-    hover: { borderColor: 'rgba(245, 158, 11, 0.4)' },
+    rest: { borderColor: 'rgba(14, 165, 233, 0.1)' },
+    hover: { borderColor: 'rgba(14, 165, 233, 0.4)' },
   },
   none: {
     rest: {},
@@ -83,13 +83,21 @@ export const CardHeader = ({ className, children, ...props }: HTMLAttributes<HTM
   </div>
 );
 
-export const CardTitle = ({ className, children, ...props }: HTMLAttributes<HTMLHeadingElement>) => (
+export const CardTitle = ({
+  className,
+  children,
+  ...props
+}: HTMLAttributes<HTMLHeadingElement>) => (
   <h3 className={cn('text-xl font-semibold text-dust-white font-heading', className)} {...props}>
     {children}
   </h3>
 );
 
-export const CardDescription = ({ className, children, ...props }: HTMLAttributes<HTMLParagraphElement>) => (
+export const CardDescription = ({
+  className,
+  children,
+  ...props
+}: HTMLAttributes<HTMLParagraphElement>) => (
   <p className={cn('text-sm text-dust-muted mt-1', className)} {...props}>
     {children}
   </p>

@@ -14,15 +14,15 @@ interface ButtonProps extends Omit<HTMLMotionProps<'button'>, 'size'> {
 
 const variants: Record<ButtonVariant, string> = {
   primary: `
-    bg-gradient-to-r from-amber-500 to-amber-600
+    bg-gradient-to-r from-cyber-500 to-cyber-600
     text-void-950 font-semibold
-    hover:shadow-glow-amber
+    hover:shadow-glow-cyber
   `,
   secondary: `
     bg-void-700/50 backdrop-blur-sm
     text-dust-white
-    border border-amber-500/20
-    hover:bg-void-600/50 hover:border-amber-500/40
+    border border-cyber-500/20
+    hover:bg-void-600/50 hover:border-cyber-500/40
   `,
   ghost: `
     bg-transparent
@@ -31,9 +31,9 @@ const variants: Record<ButtonVariant, string> = {
   `,
   outline: `
     bg-transparent
-    text-amber-400
-    border border-amber-500/50
-    hover:bg-amber-500/10 hover:border-amber-500
+    text-cyber-400
+    border border-cyber-500/50
+    hover:bg-cyber-500/10 hover:border-cyber-500
   `,
   holo: `
     bg-transparent

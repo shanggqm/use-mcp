@@ -105,31 +105,30 @@ Key differences from traditional web applications:
 
 MCP App architecture is divided into three layers:
 
-```
-┌─────────────────────────────────────────────────────┐
-│                    MCP Server                        │
-│  - registerAppTool(): Register tools with UI         │
-│  - registerAppResource(): Register UI resources      │
-│  - Handle tool calls, return structured data         │
-└───────────────────────┬─────────────────────────────┘
-                        │ MCP Protocol (JSON-RPC)
-                        ▼
-┌─────────────────────────────────────────────────────┐
-│                    Host (AppBridge)                  │
-│  - Connect to MCP servers                            │
-│  - Manage iframe sandbox                             │
-│  - Forward requests/responses                        │
-│  - Send tool input/results to View                   │
-└───────────────────────┬─────────────────────────────┘
-                        │ postMessage (JSON-RPC)
-                        ▼
-┌─────────────────────────────────────────────────────┐
-│                    View (App class)                  │
-│  - Runs inside iframe                                │
-│  - Receives tool inputs and results                  │
-│  - Can call server tools                             │
-│  - Can send messages to conversation                 │
-└─────────────────────────────────────────────────────┘
+```mermaid
+flowchart TB
+    subgraph Server["🖥️ MCP Server"]
+        S1["registerAppTool(): Register tools with UI"]
+        S2["registerAppResource(): Register UI resources"]
+        S3["Handle tool calls, return structured data"]
+    end
+    
+    subgraph Host["🌐 Host (AppBridge)"]
+        H1["Connect to MCP servers"]
+        H2["Manage iframe sandbox"]
+        H3["Forward requests/responses"]
+        H4["Send tool input/results to View"]
+    end
+    
+    subgraph View["📱 View (App class)"]
+        V1["Runs inside iframe"]
+        V2["Receives tool inputs and results"]
+        V3["Can call server tools"]
+        V4["Can send messages to conversation"]
+    end
+    
+    Server -->|"MCP Protocol (JSON-RPC)"| Host
+    Host -->|"postMessage (JSON-RPC)"| View
 ```
 
 **Three-layer Responsibilities**:
@@ -142,27 +141,40 @@ MCP App architecture is divided into three layers:
 
 The complete lifecycle of an MCP App:
 
-```
-1. Discovery
-   └── Host fetches tool list, identifies tools with _meta.ui.resourceUri
-
-2. Initialize
-   └── Host renders iframe
-   └── View sends ui/initialize handshake request
-   └── Host returns context and capabilities
-
-3. Data Delivery
-   └── Host sends tool-input notification (tool input parameters)
-   └── Host sends tool-result notification (tool execution results)
-
-4. Interactive
-   └── User interacts with View
-   └── View can call server tools
-   └── View can update model context
-
-5. Teardown
-   └── Host sends ui/resource-teardown
-   └── View cleans up resources, disconnects
+```mermaid
+flowchart LR
+    subgraph D["1️⃣ Discovery"]
+        D1["Host fetches tool list"]
+        D2["Identifies tools with _meta.ui.resourceUri"]
+        D1 --> D2
+    end
+    
+    subgraph I["2️⃣ Initialize"]
+        I1["Host renders iframe"]
+        I2["View sends ui/initialize"]
+        I3["Host returns context & capabilities"]
+        I1 --> I2 --> I3
+    end
+    
+    subgraph DD["3️⃣ Data Delivery"]
+        DD1["Host sends tool-input"]
+        DD2["Host sends tool-result"]
+        DD1 --> DD2
+    end
+    
+    subgraph Int["4️⃣ Interactive"]
+        Int1["User interacts with View"]
+        Int2["View calls server tools"]
+        Int3["View updates model context"]
+    end
+    
+    subgraph T["5️⃣ Teardown"]
+        T1["Host sends teardown"]
+        T2["View cleans up resources"]
+        T1 --> T2
+    end
+    
+    D --> I --> DD --> Int --> T
 ```
 
 ### 2.4 URI Scheme and MIME Type
@@ -484,23 +496,41 @@ await app.connect(transport);
 
 ### 5.4 Complete Communication Sequence Diagram
 
-```
-View                          Host                          Server
-  │                             │                              │
-  │◄────── render iframe ───────│                              │
-  │                             │                              │
-  │── ui/initialize ──────────►│                              │
-  │◄─ {context, capabilities} ──│                              │
-  │── ui/notifications/init ──►│                              │
-  │                             │                              │
-  │◄─ tool-input notification ──│◄───── tool call ────────────│
-  │◄─ tool-result notification ─│◄───── tool result ──────────│
-  │                             │                              │
-  │── tools/call ─────────────►│── tools/call ───────────────►│
-  │◄─ result ───────────────────│◄─ result ───────────────────│
-  │                             │                              │
-  │◄─ ui/resource-teardown ─────│                              │
-  │── acknowledgment ──────────►│                              │
+```mermaid
+sequenceDiagram
+    participant V as View (iframe)
+    participant H as Host (AppBridge)
+    participant S as MCP Server
+
+    rect rgb(40, 35, 30)
+        Note over V,H: Initialization Phase
+        H->>V: render iframe
+        V->>H: ui/initialize
+        H-->>V: {context, capabilities}
+        V->>H: ui/notifications/initialized
+    end
+
+    rect rgb(35, 40, 35)
+        Note over V,S: Data Delivery Phase
+        S->>H: tool call
+        H->>V: tool-input notification
+        S->>H: tool result
+        H->>V: tool-result notification
+    end
+
+    rect rgb(35, 35, 40)
+        Note over V,S: Interactive Phase
+        V->>H: tools/call
+        H->>S: tools/call
+        S-->>H: result
+        H-->>V: result
+    end
+
+    rect rgb(40, 30, 30)
+        Note over V,H: Teardown Phase
+        H->>V: ui/resource-teardown
+        V-->>H: acknowledgment
+    end
 ```
 
 ---
@@ -543,10 +573,14 @@ function buildAllowAttribute(permissions?: McpUiResourcePermissions): string {
 
 For enhanced security, the specification recommends a **double iframe architecture**:
 
-```
-Host Window
-  └── Sandbox iframe (validates origin)
-        └── Resource iframe (runs App)
+```mermaid
+flowchart TB
+    HW["🪟 Host Window"]
+    SI["🛡️ Sandbox iframe<br/>(validates origin)"]
+    RI["📱 Resource iframe<br/>(runs App)"]
+    
+    HW --> SI
+    SI --> RI
 ```
 
 - **Outer iframe**: Acts as security proxy, validates inner message origins

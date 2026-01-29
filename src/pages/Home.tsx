@@ -3,8 +3,7 @@ import { BookOpen, Boxes, FolderKanban, Video, ArrowRight, Zap } from 'lucide-re
 import { motion } from 'framer-motion';
 import { Button, Card, CardContent, Badge } from '../components';
 import { NebulaGradient } from '../components/backgrounds/NebulaGradient';
-import { ShootingStars } from '../components/effects/ShootingStars';
-import { GlowingStars } from '../components/effects/GlowingStars';
+import { WarpDriveNebula } from '../components/effects/WarpDriveNebula';
 import { GlowingBorder } from '../components/effects/GlowingBorder';
 
 const features = [
@@ -13,7 +12,7 @@ const features = [
     title: '文章',
     description: '深入了解 MCP 协议的技术文章和教程',
     link: '/articles',
-    color: 'amber',
+    color: 'cyber',
   },
   {
     icon: Boxes,
@@ -34,7 +33,7 @@ const features = [
     title: '视频',
     description: 'MCP 相关的视频教程和演示',
     link: '/videos',
-    color: 'amber',
+    color: 'cyber',
   },
 ];
 
@@ -64,13 +63,11 @@ export default function Home() {
     <div className="relative">
       {/* Hero Section */}
       <section className="relative min-h-[90vh] flex items-center justify-center overflow-hidden">
-        {/* Background effects */}
-        <NebulaGradient />
-        <ShootingStars quantity={8} />
-        <GlowingStars quantity={20} />
+        {/* Background effects - Warp Drive into Helix Nebula (上帝之眼) */}
+        <WarpDriveNebula starCount={3000} warpSpeed={0.1} nebulaIntensity={0.9} nebulaScale={0.5} />
 
         {/* Grid overlay for cockpit feel */}
-        <div className="absolute inset-0 grid-bg opacity-30" />
+        <div className="absolute inset-0 grid-bg opacity-20" />
 
         {/* Content */}
         <div className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
@@ -86,7 +83,7 @@ export default function Home() {
               transition={{ delay: 0.2 }}
               className="inline-flex items-center mb-8"
             >
-              <Badge variant="amber" className="px-4 py-1.5 font-cockpit text-[10px]">
+              <Badge variant="cyber" className="px-4 py-1.5 font-cockpit text-[10px]">
                 <Zap size={12} className="mr-2" />
                 OPEN PROTOCOL · AI GATEWAY
               </Badge>
@@ -135,9 +132,9 @@ export default function Home() {
           animate={{ y: [0, 10, 0] }}
           transition={{ duration: 2, repeat: Infinity }}
         >
-          <div className="w-6 h-10 rounded-full border-2 border-amber-500/30 flex items-start justify-center p-2">
+          <div className="w-6 h-10 rounded-full border-2 border-cyber-500/30 flex items-start justify-center p-2">
             <motion.div
-              className="w-1.5 h-1.5 rounded-full bg-amber-500"
+              className="w-1.5 h-1.5 rounded-full bg-cyber-500"
               animate={{ y: [0, 12, 0] }}
               transition={{ duration: 2, repeat: Infinity }}
             />
@@ -155,22 +152,19 @@ export default function Home() {
             viewport={{ once: true, margin: '-100px' }}
             className="grid md:grid-cols-2 lg:grid-cols-4 gap-6"
           >
-            {features.map((feature) => (
+            {features.map(feature => (
               <motion.div key={feature.title} variants={itemVariants}>
                 <Link to={feature.link}>
-                  <GlowingBorder variant={feature.color === 'holo' ? 'holo' : 'amber'}>
-                    <Card
-                      hover="glow"
-                      className="h-full bg-void-850/60"
-                    >
+                  <GlowingBorder variant={feature.color === 'holo' ? 'holo' : 'cyber'}>
+                    <Card hover="glow" className="h-full bg-void-850/60">
                       <CardContent className="p-6">
                         <div
                           className={`w-12 h-12 rounded-lg flex items-center justify-center mb-4 ${
-                            feature.color === 'amber'
-                              ? 'bg-amber-500/10 text-amber-400'
+                            feature.color === 'cyber'
+                              ? 'bg-cyber-500/10 text-cyber-400'
                               : feature.color === 'holo'
-                              ? 'bg-holo/10 text-holo'
-                              : 'bg-plasma/10 text-plasma'
+                                ? 'bg-holo/10 text-holo'
+                                : 'bg-plasma/10 text-plasma'
                           }`}
                         >
                           <feature.icon size={24} />
@@ -194,7 +188,7 @@ export default function Home() {
       {/* About MCP Section */}
       <section className="relative py-24">
         <div className="absolute inset-0 bg-void-900/50" />
-        <NebulaGradient variant="amber" className="opacity-30" />
+        <NebulaGradient variant="cyber" className="opacity-30" />
 
         <div className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
@@ -215,20 +209,25 @@ export default function Home() {
             <Card variant="panel" className="max-w-4xl mx-auto">
               <CardContent className="p-8 md:p-12">
                 <p className="text-dust-light leading-relaxed text-lg">
-                  <span className="text-dust-white font-semibold">Model Context Protocol (MCP)</span>{' '}
-                  是由 Anthropic 提出的开放协议，旨在标准化 AI 模型与外部工具、数据源之间的交互方式。
+                  <span className="text-dust-white font-semibold">
+                    Model Context Protocol (MCP)
+                  </span>{' '}
+                  是由 Anthropic 提出的开放协议，旨在标准化 AI
+                  模型与外部工具、数据源之间的交互方式。
                 </p>
                 <p className="text-dust-light leading-relaxed text-lg mt-4">
-                  通过 MCP，AI 应用可以安全、高效地访问文件系统、数据库、API 等资源，实现更强大的功能。
-                  它就像是 AI 世界的 <span className="text-amber-400 font-semibold">通用接口</span>，让不同的工具和服务能够即插即用。
+                  通过 MCP，AI 应用可以安全、高效地访问文件系统、数据库、API
+                  等资源，实现更强大的功能。 它就像是 AI 世界的{' '}
+                  <span className="text-cyber-400 font-semibold">通用接口</span>
+                  ，让不同的工具和服务能够即插即用。
                 </p>
 
-                <div className="grid md:grid-cols-3 gap-6 mt-8 pt-8 border-t border-amber-500/10">
+                <div className="grid md:grid-cols-3 gap-6 mt-8 pt-8 border-t border-cyber-500/10">
                   {[
                     { label: '开放标准', value: 'OPEN', code: 'PROTO' },
                     { label: '安全可控', value: 'SECURE', code: 'SAFE' },
                     { label: '即插即用', value: 'PLUG', code: 'PLAY' },
-                  ].map((item) => (
+                  ].map(item => (
                     <div key={item.label} className="text-center">
                       <div className="font-cockpit text-2xl md:text-3xl text-gradient tracking-widest">
                         {item.value}

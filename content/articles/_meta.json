@@ -3,9 +3,9 @@
     {
       "slug": "mcp-app",
       "title": "一文彻底搞懂 MCP App：从协议规范到实战开发",
-      "titleEn": "Understanding MCP Apps: From Protocol Spec to Development",
+      "titleEn": "The Complete Guide to MCP Apps: From Protocol Specification to Practical Development",
       "description": "深入解析 MCP App 架构设计、协议规范、SDK API 和最佳实践，帮助开发者全面理解如何为 AI Agent 构建交互式 UI",
-      "descriptionEn": "Deep dive into MCP App architecture, protocol spec, SDK APIs and best practices for building interactive UI for AI Agents",
+      "descriptionEn": "A comprehensive deep dive into MCP App architecture, protocol specification, SDK APIs, and best practices for building interactive UI for AI Agents",
       "date": "2026-01-28",
       "tags": [
         "MCP",
@@ -14,7 +14,7 @@
         "SDK",
         "Protocol"
       ],
-      "featured": true,
+      "featured": false,
       "languages": [
         "zh",
         "en"

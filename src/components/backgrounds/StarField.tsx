@@ -15,7 +15,7 @@ export function StarField({ className, quantity = 80, speed = 0.3 }: StarFieldPr
   const [init, setInit] = useState(false);
 
   useEffect(() => {
-    initParticlesEngine(async (engine) => {
+    initParticlesEngine(async engine => {
       await loadSlim(engine);
     }).then(() => {
       setInit(true);
@@ -33,8 +33,8 @@ export function StarField({ className, quantity = 80, speed = 0.3 }: StarFieldPr
       fpsLimit: 60,
       particles: {
         color: {
-          // Warm star colors - amber, white, occasional holo
-          value: ['#f5f0e8', '#fbbf24', '#f59e0b', '#d4cdc2', '#2dd4bf'],
+          // Cool star colors - cyber, white, occasional holo
+          value: ['#f0f2f8', '#38bdf8', '#0ea5e9', '#c8cdd8', '#2dd4bf'],
         },
         move: {
           enable: true,
@@ -75,7 +75,7 @@ export function StarField({ className, quantity = 80, speed = 0.3 }: StarFieldPr
             frequency: 0.05,
             opacity: 1,
             color: {
-              value: ['#fbbf24', '#f59e0b', '#2dd4bf'],
+              value: ['#38bdf8', '#0ea5e9', '#2dd4bf'],
             },
           },
         },
@@ -87,10 +87,5 @@ export function StarField({ className, quantity = 80, speed = 0.3 }: StarFieldPr
 
   if (!init) return null;
 
-  return (
-    <Particles
-      className={className}
-      options={options}
-    />
-  );
+  return <Particles className={className} options={options} />;
 }

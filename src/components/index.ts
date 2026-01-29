@@ -2,6 +2,7 @@
 export { Button } from './ui/Button';
 export { Card, CardHeader, CardTitle, CardDescription, CardContent } from './ui/Card';
 export { Badge } from './ui/Badge';
+export { ArticleCard } from './ui/ArticleCard';
 
 // Background Components
 export { StarField } from './backgrounds/StarField';

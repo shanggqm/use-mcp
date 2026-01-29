@@ -17,7 +17,7 @@ export default function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   return (
-    <header className="sticky top-0 z-50 bg-void-900/80 backdrop-blur-xl border-b border-amber-500/10">
+    <header className="sticky top-0 z-50 bg-void-900/80 backdrop-blur-xl border-b border-cyber-500/10">
       <nav className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           <Link to="/" className="flex items-center space-x-2 group">
@@ -37,14 +37,14 @@ export default function Header() {
                 {location.pathname === item.path && (
                   <motion.span
                     layoutId="navbar-active"
-                    className="absolute inset-0 bg-amber-500/10 rounded-lg border border-amber-500/20"
+                    className="absolute inset-0 bg-cyber-500/10 rounded-lg border border-cyber-500/20"
                     transition={{ type: 'spring', bounce: 0.2, duration: 0.6 }}
                   />
                 )}
                 <span
                   className={`relative z-10 font-heading tracking-wide ${
                     location.pathname === item.path
-                      ? 'text-amber-400'
+                      ? 'text-cyber-400'
                       : 'text-dust-muted hover:text-dust-white'
                   }`}
                 >
@@ -72,14 +72,14 @@ export default function Header() {
               exit={{ opacity: 0, height: 0 }}
               className="md:hidden overflow-hidden"
             >
-              <div className="py-4 border-t border-amber-500/10 space-y-1">
+              <div className="py-4 border-t border-cyber-500/10 space-y-1">
                 {navItems.map(item => (
                   <Link
                     key={item.path}
                     to={item.path}
                     className={`flex items-center justify-between py-2 px-3 rounded-lg text-sm font-heading tracking-wide transition-colors ${
                       location.pathname === item.path
-                        ? 'text-amber-400 bg-amber-500/10'
+                        ? 'text-cyber-400 bg-cyber-500/10'
                         : 'text-dust-muted hover:text-dust-white hover:bg-void-700/30'
                     }`}
                     onClick={() => setMobileMenuOpen(false)}

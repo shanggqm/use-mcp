@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 export default function Footer() {
   return (
-    <footer className="relative border-t border-amber-500/10 bg-void-900/50 backdrop-blur-sm">
+    <footer className="relative border-t border-cyber-500/10 bg-void-900/50 backdrop-blur-sm">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <div className="grid md:grid-cols-3 gap-8">
           {/* Brand */}
@@ -20,9 +20,7 @@ export default function Footer() {
 
           {/* Links */}
           <div>
-            <h4 className="text-dust-white font-heading font-semibold mb-3 tracking-wide">
-              导航
-            </h4>
+            <h4 className="text-dust-white font-heading font-semibold mb-3 tracking-wide">导航</h4>
             <ul className="space-y-2 text-sm">
               {[
                 { to: '/articles', label: '文章', code: 'DOCS' },
@@ -33,7 +31,7 @@ export default function Footer() {
                 <li key={item.to}>
                   <Link
                     to={item.to}
-                    className="text-dust-muted hover:text-amber-400 transition-colors inline-flex items-center gap-2"
+                    className="text-dust-muted hover:text-cyber-400 transition-colors inline-flex items-center gap-2"
                   >
                     <span>{item.label}</span>
                     <span className="font-mono text-xs text-dust-dim">[{item.code}]</span>
@@ -45,15 +43,13 @@ export default function Footer() {
 
           {/* Social */}
           <div>
-            <h4 className="text-dust-white font-heading font-semibold mb-3 tracking-wide">
-              连接
-            </h4>
+            <h4 className="text-dust-white font-heading font-semibold mb-3 tracking-wide">连接</h4>
             <div className="flex space-x-3">
               <a
                 href="https://github.com/shanggqm/use-mcp"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="p-2.5 rounded-lg bg-void-800/50 text-dust-muted hover:text-amber-400 hover:bg-amber-500/10 border border-transparent hover:border-amber-500/20 transition-all"
+                className="p-2.5 rounded-lg bg-void-800/50 text-dust-muted hover:text-cyber-400 hover:bg-cyber-500/10 border border-transparent hover:border-cyber-500/20 transition-all"
               >
                 <Github size={18} />
               </a>
@@ -70,10 +66,10 @@ export default function Footer() {
         </div>
 
         {/* Copyright */}
-        <div className="mt-12 pt-8 border-t border-amber-500/5">
+        <div className="mt-12 pt-8 border-t border-cyber-500/5">
           <p className="text-center text-dust-dim text-sm font-mono">
-            <span className="text-dust-muted">&copy; {new Date().getFullYear()}</span>
-            {' '}<span className="text-amber-400/60">USE_MCP</span>{' '}
+            <span className="text-dust-muted">&copy; {new Date().getFullYear()}</span>{' '}
+            <span className="text-cyber-400/60">USE_MCP</span>{' '}
             <span className="text-dust-dim">// ALL_RIGHTS_RESERVED</span>
           </p>
         </div>

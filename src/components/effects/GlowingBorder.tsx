@@ -7,7 +7,7 @@ interface GlowingBorderProps {
   className?: string;
   borderRadius?: string;
   duration?: number;
-  variant?: 'amber' | 'holo' | 'mixed';
+  variant?: 'cyber' | 'holo' | 'mixed';
 }
 
 export function GlowingBorder({
@@ -15,12 +15,12 @@ export function GlowingBorder({
   className,
   borderRadius = '0.75rem',
   duration = 4,
-  variant = 'amber',
+  variant = 'cyber',
 }: GlowingBorderProps) {
   const gradients = {
-    amber: 'linear-gradient(90deg, #fbbf24, #f59e0b, #d97706, #f59e0b, #fbbf24)',
+    cyber: 'linear-gradient(90deg, #38bdf8, #0ea5e9, #0284c7, #0ea5e9, #38bdf8)',
     holo: 'linear-gradient(90deg, #2dd4bf, #14b8a6, #0d9488, #14b8a6, #2dd4bf)',
-    mixed: 'linear-gradient(90deg, #fbbf24, #f59e0b, #2dd4bf, #f59e0b, #fbbf24)',
+    mixed: 'linear-gradient(90deg, #38bdf8, #0ea5e9, #2dd4bf, #0ea5e9, #38bdf8)',
   };
 
   return (

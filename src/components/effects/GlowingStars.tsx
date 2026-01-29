@@ -29,18 +29,18 @@ export function GlowingStars({ className, quantity = 30 }: GlowingStarsProps) {
     setStars(newStars);
   }, [quantity]);
 
-  // Color palette: mostly warm (amber/white), occasional holo accent
+  // Color palette: mostly cool (cyber/white), occasional holo accent
   const getStarColor = (index: number) => {
-    const colors = ['#fbbf24', '#f59e0b', '#f5f0e8', '#d4cdc2', '#2dd4bf'];
-    // Weight towards amber/white (80%), occasional holo (20%)
+    const colors = ['#38bdf8', '#0ea5e9', '#f0f2f8', '#c8cdd8', '#2dd4bf'];
+    // Weight towards cyber/white (80%), occasional holo (20%)
     if (index % 5 === 0) return colors[4]; // holo
     return colors[index % 4];
   };
 
   const getGlowColor = (index: number) => {
     if (index % 5 === 0) return 'rgba(45, 212, 191, 0.5)'; // holo glow
-    if (index % 3 === 0) return 'rgba(245, 158, 11, 0.5)'; // amber glow
-    return 'rgba(245, 240, 232, 0.4)'; // white glow
+    if (index % 3 === 0) return 'rgba(14, 165, 233, 0.5)'; // cyber glow
+    return 'rgba(240, 242, 248, 0.4)'; // white glow
   };
 
   return (

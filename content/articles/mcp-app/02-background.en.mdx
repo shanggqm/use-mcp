@@ -1,0 +1,174 @@
+---
+title: 'The Story Behind MCP App: Origins and Latest Developments'
+description: 'A deep dive into why MCP App was created, how it evolved, and where the ecosystem stands today'
+date: '2026-01-29'
+tags: ['MCP', 'MCP App', 'AI Agent', 'UI', 'Anthropic', 'OpenAI']
+lang: 'en'
+author: 'use-mcp.dev'
+---
+
+# The Story Behind MCP App: Origins and Latest Developments
+
+![Cover: Evolution from text-based chat to visual interactive interfaces](./images-02/cover.png)
+
+On January 26, 2026, the MCP team officially released MCP Apps 1.0 stable version. When I saw the news, my first reaction was: finally.
+
+You might be wondering: wasn't AI supposed to be all about conversation? Why are we suddenly talking about building UIs? Shouldn't AI be getting smarter and "understanding" us better, rather than requiring more interfaces?
+
+I get the confusion. But if you're like me—someone who's been grinding away with various AI Agent tools for real work over the past year—you've definitely had moments like this: you ask AI to analyze data, and it spits out a wall of JSON; you request a report, and you get a Markdown table; you want a chart, and it says "you can copy this data into Excel and create one there."
+
+In that moment, didn't you feel a bit frustrated watching it struggle?
+
+---
+
+## 01 / An Awkward Reality: AI Can Only "Talk"
+
+MCP (Model Context Protocol) was originally designed to solve the connection problem between AI models and external data/tools. It defined three core primitives: Tools, Resources, and Prompts. This design is elegant and solves the "AI needs hands" problem.
+
+But there's one thing it didn't solve: **AI can only "tell," not "show."**
+
+What do I mean? MCP originally only supported text and structured data exchange. When you ask AI to analyze sales data, it can query databases and calculate metrics, but ultimately can only report results through text or JSON. If you want a pie chart or an interactive dashboard? Sorry, figure it out yourself.
+
+It's like hiring a super-smart analyst who can only give phone reports but can't make slides.
+
+I've felt this pain firsthand in actual use. Once I asked Claude to help me analyze the code structure of an open-source project. It rambled on and on, and I was still confused afterward. Later, I used a visualization tool to draw an architecture diagram, and I understood everything in 3 seconds. At that moment, I thought: **why can't AI just draw this diagram for me?**
+
+---
+
+## 02 / The Community Couldn't Wait
+
+The community actually sensed this need before the official team did.
+
+**MCP-UI Community Project**: The [MCP-UI](https://mcpui.dev/) project, created by Ido Salomon and Liad Yosef, had already accumulated 4.2k+ stars before the official spec came out. They proved something: UI resources can naturally integrate into the MCP architecture. This project was adopted by major companies and well-known projects like Postman, Shopify, Hugging Face, and Goose, becoming a de facto pioneer.
+
+**Working Group Discussions**: In mid-2025, the community proposed "UI Component Integration in MCP Responses" RFC (Issue #35) in the MCP working group, discussing how to integrate UI components into MCP responses. The discussion was heated, with demands including:
+
+- Interactive forms, buttons, multi-step workflows
+- Real-time data visualization (charts, dashboards)
+- Configuration wizards (multi-option, conditional dependencies)
+- Rich media viewers (PDF, 3D models, video)
+
+**OpenAI Apps SDK**: Meanwhile, OpenAI was building something similar for ChatGPT—the [Apps SDK](https://developers.openai.com/apps-sdk/), allowing developers to build UI-enabled applications within ChatGPT. This further validated market demand.
+
+I've been tracking these developments closely, and the more I watched, the more I realized: **this isn't a question of "whether to have it" but "when to have it."** The demand was bubbling up from the bottom. The community couldn't wait.
+
+---
+
+## 03 / Anthropic and OpenAI's Rare Handshake
+
+What happened next surprised me a bit.
+
+On November 21, 2025, the MCP team released the first public preview of MCP Apps ([SEP-1865](https://github.com/modelcontextprotocol/modelcontextprotocol/pull/1865)). What surprised me wasn't the spec itself, but the list of participants:
+
+- **Anthropic**: Anton Pidkuiko, Olivier Chafik, Sean Strong, Jerome Swannack
+- **OpenAI**: Nick Cooper, Alexei Christakis, Bryan Ashley
+- **MCP-UI**: Ido Salomon, Liad Yosef
+
+You read that right—**Anthropic and OpenAI, two "competitors," sat together to jointly develop this specification.**
+
+In the AI field, this level of cross-company collaboration is extremely rare. These two companies are fiercely competing in the large model race, yet they managed to set aside competition and work together at the protocol level. What does this tell us? It tells us that everyone realizes: **fragmentation is the enemy of the entire ecosystem.**
+
+If Claude has its own UI approach, ChatGPT has its own Widget mechanism, and VS Code creates yet another system, developers would have to write code for each platform. Who would want to invest in that? How could the ecosystem thrive?
+
+So they chose to shake hands. This gave me even more confidence in MCP's future.
+
+---
+
+## 04 / January 26, 2026: Official Release
+
+After over two months of iteration, MCP Apps 1.0 was officially released on January 26, 2026.
+
+The official blog title was: **"MCP Apps - Bringing UI Capabilities To MCP Clients."** Simply put: giving AI Agents eyes and a face.
+
+Key points:
+
+1. **Tool + UI Resource = MCP App**: Through the `_meta.ui.resourceUri` field, tools can associate with a UI resource
+2. **iframe Sandbox Isolation**: All UI content runs in a secure sandbox environment
+3. **Cross-platform Support**: Claude, ChatGPT, VS Code, and Goose are among the first supporters
+
+The official team provided rich example projects:
+
+| Category             | Example                        | Demo Features                |
+| -------------------- | ------------------------------ | ---------------------------- |
+| 3D/Visualization     | map-server, threejs-server     | Interactive maps, 3D scenes  |
+| Document/Media       | pdf-server, sheet-music-server | PDF viewing, music notation  |
+| Data Analysis        | cohort-heatmap-server          | Retention heatmaps           |
+| Real-time Monitoring | system-monitor-server          | System monitoring dashboards |
+
+I personally played with several examples. When I called a chart tool in Claude, it rendered an interactive ECharts chart directly in the chat—I could hover to see data, click to filter, and drag to zoom. This experience is on a completely different level from "copy to Excel."
+
+---
+
+## 05 / Current Ecosystem Status
+
+As of today, here's the MCP App ecosystem support situation:
+
+**Already Supported Clients**:
+
+- ✅ Claude (Web and Desktop)
+- ✅ ChatGPT (rolling out this week)
+- ✅ VS Code Insiders (GitHub Copilot integration)
+- ✅ Goose (Block open-source project)
+- ✅ Postman, MCPJam, and other community clients
+
+**Expressed Support Intent**:
+
+- 🚧 JetBrains IDEs
+- 🚧 AWS Bedrock
+- 🚧 Google DeepMind (Antigravity team)
+
+What does this mean? It means **the same MCP App can run in Claude, ChatGPT, and VS Code**—developers only need to write code once. This is a first in the AI Agent space.
+
+The statements from various companies are also very positive:
+
+> "MCP Apps extends MCP further by bringing user interfaces into the agent experience itself. At Block, we believe the future centers on users navigating through one trusted agent rather than context-switching between fragmented experiences."
+> — **Andrew Harvard**, Block
+
+> "VS Code has been treating the protocol like a contract: implement the full spec, track the latest capabilities. With MCP Apps, that contract finally includes the missing human step."
+> — **Harald Kirschner**, Microsoft
+
+---
+
+## 06 / My Take: This Will Become the De Facto Standard
+
+Now let me share my predictions.
+
+**First, MCP App will become the de facto standard for AI Agent UI.**
+
+The reason is simple: all major players are on board. When Anthropic, OpenAI, Microsoft, and Block all support the same protocol, what reason do other players have to create their own? The power of ecosystem will crush everything.
+
+**Second, in the short term, it will complement rather than compete with A2UI.**
+
+Google's A2UI (Agent-to-User Interface) takes a "declarative component" approach—the Agent outputs JSON descriptions, and the client maps them to native components. This differs from MCP App's "embedded Web application" approach, and each has its strengths:
+
+- Simple scenarios (forms, lists): A2UI is lighter
+- Complex interactions (3D, charts, custom logic): MCP App is more flexible
+
+I predict the two will eventually merge—MCP App might support A2UI-style component descriptions, and A2UI's component directory might support embedding MCP Apps.
+
+**Third, according to Forrester's 2026 prediction, 30% of enterprise application vendors will launch their own MCP servers.**
+
+MCP App enables enterprises to package internal systems as AI-callable applications with UIs, which is a huge accelerator for enterprise AI transformation.
+
+These are my non-consensus predictions. Staking my claim here. Feel free to prove me wrong.
+
+---
+
+## Final Thoughts
+
+The release of MCP App marks AI Agent ecosystem's official transition from "tool invocation" to "application platform" era.
+
+This isn't a small technical improvement—it's a paradigm shift. Traditional AI Agents could only "talk"; now they can "show." Users no longer need to switch back and forth between chat boxes and various tools; AI can directly present visual, interactive interfaces within the conversation.
+
+As someone who's been in the trenches, I'm genuinely excited about this development. I've witnessed firsthand how many scenarios became clunky because of the "chat-only" limitation. Now, this problem finally has an official, cross-platform, standardized solution.
+
+If you're doing MCP development, it's time to seriously look into MCP App. In the next article, we'll discuss "MCP App: A New Trend in AI-Generated UI?" and explore what this technology means for frontend developers.
+
+---
+
+**References**:
+
+- [MCP Apps 1.0 Release Announcement](https://blog.modelcontextprotocol.io/posts/2026-01-26-mcp-apps/)
+- [MCP Apps Preview Announcement](https://blog.modelcontextprotocol.io/posts/2025-11-21-mcp-apps/)
+- [ext-apps Official Repository](https://github.com/modelcontextprotocol/ext-apps)
+- [MCP Apps Official Documentation](https://modelcontextprotocol.io/docs/extensions/apps)
