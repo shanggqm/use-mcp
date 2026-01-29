@@ -1,4 +1,4 @@
-import{j as i}from"./index-FZiEhLxM.js";const n={title:"一文彻底搞懂 MCP App：从协议规范到实战开发",description:"深入解析 MCP App 架构设计、协议规范、SDK API 和最佳实践，帮助开发者全面理解如何为 AI Agent 构建交互式 UI",date:"2026-01-28",tags:["MCP","AI Agent","UI","SDK","Protocol"],lang:"zh",author:"use-mcp.dev"};function l(h){const s={a:"a",code:"code",figure:"figure",h2:"h2",h3:"h3",h4:"h4",hr:"hr",li:"li",ol:"ol",p:"p",pre:"pre",span:"span",strong:"strong",table:"table",tbody:"tbody",td:"td",th:"th",thead:"thead",tr:"tr",ul:"ul",...h.components};return i.jsxs(i.Fragment,{children:[i.jsx(s.h2,{children:"太长不看"}),`
+import{j as i}from"./index-BgDi2SJQ.js";const n={title:"一文彻底搞懂 MCP App：从协议规范到实战开发",description:"深入解析 MCP App 架构设计、协议规范、SDK API 和最佳实践，帮助开发者全面理解如何为 AI Agent 构建交互式 UI",date:"2026-01-28",tags:["MCP","AI Agent","UI","SDK","Protocol"],lang:"zh",author:"use-mcp.dev"};function l(h){const s={a:"a",code:"code",figure:"figure",h2:"h2",h3:"h3",h4:"h4",hr:"hr",li:"li",ol:"ol",p:"p",pre:"pre",span:"span",strong:"strong",table:"table",tbody:"tbody",td:"td",th:"th",thead:"thead",tr:"tr",ul:"ul",...h.components};return i.jsxs(i.Fragment,{children:[i.jsx(s.h2,{children:"太长不看"}),`
 `,i.jsxs(s.ul,{children:[`
 `,i.jsxs(s.li,{children:[i.jsx(s.strong,{children:"MCP App 是什么"}),"：运行在 MCP 宿主 iframe 中的交互式 UI 组件，让 AI Agent 能够返回可视化界面而非纯文本"]}),`
 `,i.jsxs(s.li,{children:[i.jsx(s.strong,{children:"核心公式"}),"：MCP App = Tool + UI Resource，通过 ",i.jsx(s.span,{"data-rehype-pretty-code-figure":"",children:i.jsx(s.code,{"data-language":"plaintext","data-theme":"github-dark-default github-light-default",children:i.jsx(s.span,{"data-line":"",children:i.jsx(s.span,{children:"_meta.ui.resourceUri"})})})})," 将工具与 UI 资源关联"]}),`
@@ -59,30 +59,29 @@ import{j as i}from"./index-FZiEhLxM.js";const n={title:"一文彻底搞懂 MCP A
 `,i.jsxs(s.table,{children:[i.jsx(s.thead,{children:i.jsxs(s.tr,{children:[i.jsx(s.th,{children:"特性"}),i.jsx(s.th,{children:"传统 Web 应用"}),i.jsx(s.th,{children:"MCP App"})]})}),i.jsxs(s.tbody,{children:[i.jsxs(s.tr,{children:[i.jsx(s.td,{children:i.jsx(s.strong,{children:"上下文"})}),i.jsx(s.td,{children:"独立页面，跳出对话"}),i.jsx(s.td,{children:"嵌入对话流，保持上下文"})]}),i.jsxs(s.tr,{children:[i.jsx(s.td,{children:i.jsx(s.strong,{children:"数据流"})}),i.jsx(s.td,{children:"需自建 API、认证"}),i.jsx(s.td,{children:"可直接调用 MCP 服务器工具"})]}),i.jsxs(s.tr,{children:[i.jsx(s.td,{children:i.jsx(s.strong,{children:"集成能力"})}),i.jsx(s.td,{children:"需单独实现各种集成"}),i.jsx(s.td,{children:"可委托宿主调用已连接的能力"})]}),i.jsxs(s.tr,{children:[i.jsx(s.td,{children:i.jsx(s.strong,{children:"安全隔离"})}),i.jsx(s.td,{children:"完全信任或完全隔离"}),i.jsx(s.td,{children:"iframe 沙箱 + CSP 精细控制"})]})]})]}),`
 `,i.jsx(s.h3,{children:"2.2 三层架构"}),`
 `,i.jsx(s.p,{children:"MCP App 的架构分为三层："}),`
-`,i.jsx(s.figure,{"data-rehype-pretty-code-figure":"",children:i.jsx(s.pre,{tabIndex:"0","data-language":"text","data-theme":"github-dark-default github-light-default",children:i.jsxs(s.code,{"data-language":"text","data-theme":"github-dark-default github-light-default",style:{display:"grid"},children:[i.jsx(s.span,{"data-line":"",children:i.jsx(s.span,{children:"┌─────────────────────────────────────────────────────┐"})}),`
-`,i.jsx(s.span,{"data-line":"",children:i.jsx(s.span,{children:"│                    MCP Server                        │"})}),`
-`,i.jsx(s.span,{"data-line":"",children:i.jsx(s.span,{children:"│  - registerAppTool(): 注册带 UI 的工具                │"})}),`
-`,i.jsx(s.span,{"data-line":"",children:i.jsx(s.span,{children:"│  - registerAppResource(): 注册 UI 资源               │"})}),`
-`,i.jsx(s.span,{"data-line":"",children:i.jsx(s.span,{children:"│  - 处理工具调用，返回结构化数据                        │"})}),`
-`,i.jsx(s.span,{"data-line":"",children:i.jsx(s.span,{children:"└───────────────────────┬─────────────────────────────┘"})}),`
-`,i.jsx(s.span,{"data-line":"",children:i.jsx(s.span,{children:"                        │ MCP Protocol (JSON-RPC)"})}),`
-`,i.jsx(s.span,{"data-line":"",children:i.jsx(s.span,{children:"                        ▼"})}),`
-`,i.jsx(s.span,{"data-line":"",children:i.jsx(s.span,{children:"┌─────────────────────────────────────────────────────┐"})}),`
-`,i.jsx(s.span,{"data-line":"",children:i.jsx(s.span,{children:"│                    Host (AppBridge)                  │"})}),`
-`,i.jsx(s.span,{"data-line":"",children:i.jsx(s.span,{children:"│  - 连接真实 MCP 服务器                               │"})}),`
-`,i.jsx(s.span,{"data-line":"",children:i.jsx(s.span,{children:"│  - 管理 iframe 沙箱                                  │"})}),`
-`,i.jsx(s.span,{"data-line":"",children:i.jsx(s.span,{children:"│  - 转发请求/响应                                     │"})}),`
-`,i.jsx(s.span,{"data-line":"",children:i.jsx(s.span,{children:"│  - 发送工具输入/结果给 View                          │"})}),`
-`,i.jsx(s.span,{"data-line":"",children:i.jsx(s.span,{children:"└───────────────────────┬─────────────────────────────┘"})}),`
-`,i.jsx(s.span,{"data-line":"",children:i.jsx(s.span,{children:"                        │ postMessage (JSON-RPC)"})}),`
-`,i.jsx(s.span,{"data-line":"",children:i.jsx(s.span,{children:"                        ▼"})}),`
-`,i.jsx(s.span,{"data-line":"",children:i.jsx(s.span,{children:"┌─────────────────────────────────────────────────────┐"})}),`
-`,i.jsx(s.span,{"data-line":"",children:i.jsx(s.span,{children:"│                    View (App 类)                     │"})}),`
-`,i.jsx(s.span,{"data-line":"",children:i.jsx(s.span,{children:"│  - 运行在 iframe 中                                  │"})}),`
-`,i.jsx(s.span,{"data-line":"",children:i.jsx(s.span,{children:"│  - 接收工具输入和结果                                │"})}),`
-`,i.jsx(s.span,{"data-line":"",children:i.jsx(s.span,{children:"│  - 可调用服务器工具                                  │"})}),`
-`,i.jsx(s.span,{"data-line":"",children:i.jsx(s.span,{children:"│  - 可发送消息到对话                                  │"})}),`
-`,i.jsx(s.span,{"data-line":"",children:i.jsx(s.span,{children:"└─────────────────────────────────────────────────────┘"})})]})})}),`
+`,i.jsx(s.figure,{"data-rehype-pretty-code-figure":"",children:i.jsx(s.pre,{tabIndex:"0","data-language":"mermaid","data-theme":"github-dark-default github-light-default",children:i.jsxs(s.code,{"data-language":"mermaid","data-theme":"github-dark-default github-light-default",style:{display:"grid"},children:[i.jsx(s.span,{"data-line":"",children:i.jsx(s.span,{style:{"--shiki-dark":"#E6EDF3","--shiki-light":"#1F2328"},children:"flowchart TB"})}),`
+`,i.jsx(s.span,{"data-line":"",children:i.jsx(s.span,{style:{"--shiki-dark":"#E6EDF3","--shiki-light":"#1F2328"},children:'    subgraph Server["🖥️ MCP Server"]'})}),`
+`,i.jsx(s.span,{"data-line":"",children:i.jsx(s.span,{style:{"--shiki-dark":"#E6EDF3","--shiki-light":"#1F2328"},children:'        S1["registerAppTool(): 注册带 UI 的工具"]'})}),`
+`,i.jsx(s.span,{"data-line":"",children:i.jsx(s.span,{style:{"--shiki-dark":"#E6EDF3","--shiki-light":"#1F2328"},children:'        S2["registerAppResource(): 注册 UI 资源"]'})}),`
+`,i.jsx(s.span,{"data-line":"",children:i.jsx(s.span,{style:{"--shiki-dark":"#E6EDF3","--shiki-light":"#1F2328"},children:'        S3["处理工具调用，返回结构化数据"]'})}),`
+`,i.jsx(s.span,{"data-line":"",children:i.jsx(s.span,{style:{"--shiki-dark":"#E6EDF3","--shiki-light":"#1F2328"},children:"    end"})}),`
+`,i.jsx(s.span,{"data-line":"",children:" "}),`
+`,i.jsx(s.span,{"data-line":"",children:i.jsx(s.span,{style:{"--shiki-dark":"#E6EDF3","--shiki-light":"#1F2328"},children:'    subgraph Host["🌐 Host (AppBridge)"]'})}),`
+`,i.jsx(s.span,{"data-line":"",children:i.jsx(s.span,{style:{"--shiki-dark":"#E6EDF3","--shiki-light":"#1F2328"},children:'        H1["连接真实 MCP 服务器"]'})}),`
+`,i.jsx(s.span,{"data-line":"",children:i.jsx(s.span,{style:{"--shiki-dark":"#E6EDF3","--shiki-light":"#1F2328"},children:'        H2["管理 iframe 沙箱"]'})}),`
+`,i.jsx(s.span,{"data-line":"",children:i.jsx(s.span,{style:{"--shiki-dark":"#E6EDF3","--shiki-light":"#1F2328"},children:'        H3["转发请求/响应"]'})}),`
+`,i.jsx(s.span,{"data-line":"",children:i.jsx(s.span,{style:{"--shiki-dark":"#E6EDF3","--shiki-light":"#1F2328"},children:'        H4["发送工具输入/结果给 View"]'})}),`
+`,i.jsx(s.span,{"data-line":"",children:i.jsx(s.span,{style:{"--shiki-dark":"#E6EDF3","--shiki-light":"#1F2328"},children:"    end"})}),`
+`,i.jsx(s.span,{"data-line":"",children:" "}),`
+`,i.jsx(s.span,{"data-line":"",children:i.jsx(s.span,{style:{"--shiki-dark":"#E6EDF3","--shiki-light":"#1F2328"},children:'    subgraph View["📱 View (App 类)"]'})}),`
+`,i.jsx(s.span,{"data-line":"",children:i.jsx(s.span,{style:{"--shiki-dark":"#E6EDF3","--shiki-light":"#1F2328"},children:'        V1["运行在 iframe 中"]'})}),`
+`,i.jsx(s.span,{"data-line":"",children:i.jsx(s.span,{style:{"--shiki-dark":"#E6EDF3","--shiki-light":"#1F2328"},children:'        V2["接收工具输入和结果"]'})}),`
+`,i.jsx(s.span,{"data-line":"",children:i.jsx(s.span,{style:{"--shiki-dark":"#E6EDF3","--shiki-light":"#1F2328"},children:'        V3["可调用服务器工具"]'})}),`
+`,i.jsx(s.span,{"data-line":"",children:i.jsx(s.span,{style:{"--shiki-dark":"#E6EDF3","--shiki-light":"#1F2328"},children:'        V4["可发送消息到对话"]'})}),`
+`,i.jsx(s.span,{"data-line":"",children:i.jsx(s.span,{style:{"--shiki-dark":"#E6EDF3","--shiki-light":"#1F2328"},children:"    end"})}),`
+`,i.jsx(s.span,{"data-line":"",children:" "}),`
+`,i.jsx(s.span,{"data-line":"",children:i.jsx(s.span,{style:{"--shiki-dark":"#E6EDF3","--shiki-light":"#1F2328"},children:'    Server -->|"MCP Protocol (JSON-RPC)"| Host'})}),`
+`,i.jsx(s.span,{"data-line":"",children:i.jsx(s.span,{style:{"--shiki-dark":"#E6EDF3","--shiki-light":"#1F2328"},children:'    Host -->|"postMessage (JSON-RPC)"| View'})})]})})}),`
 `,i.jsxs(s.p,{children:[i.jsx(s.strong,{children:"三层职责"}),"："]}),`
 `,i.jsxs(s.ol,{children:[`
 `,i.jsxs(s.li,{children:[i.jsx(s.strong,{children:"Server 层"}),"：MCP 服务器，负责注册工具、处理业务逻辑、返回数据"]}),`
@@ -91,26 +90,39 @@ import{j as i}from"./index-FZiEhLxM.js";const n={title:"一文彻底搞懂 MCP A
 `]}),`
 `,i.jsx(s.h3,{children:"2.3 生命周期"}),`
 `,i.jsx(s.p,{children:"一个 MCP App 的完整生命周期如下："}),`
-`,i.jsx(s.figure,{"data-rehype-pretty-code-figure":"",children:i.jsx(s.pre,{tabIndex:"0","data-language":"text","data-theme":"github-dark-default github-light-default",children:i.jsxs(s.code,{"data-language":"text","data-theme":"github-dark-default github-light-default",style:{display:"grid"},children:[i.jsx(s.span,{"data-line":"",children:i.jsx(s.span,{children:"1. Discovery（发现）"})}),`
-`,i.jsx(s.span,{"data-line":"",children:i.jsx(s.span,{children:"   └── Host 获取工具列表，识别带 _meta.ui.resourceUri 的工具"})}),`
+`,i.jsx(s.figure,{"data-rehype-pretty-code-figure":"",children:i.jsx(s.pre,{tabIndex:"0","data-language":"mermaid","data-theme":"github-dark-default github-light-default",children:i.jsxs(s.code,{"data-language":"mermaid","data-theme":"github-dark-default github-light-default",style:{display:"grid"},children:[i.jsx(s.span,{"data-line":"",children:i.jsx(s.span,{style:{"--shiki-dark":"#E6EDF3","--shiki-light":"#1F2328"},children:"flowchart LR"})}),`
+`,i.jsx(s.span,{"data-line":"",children:i.jsx(s.span,{style:{"--shiki-dark":"#E6EDF3","--shiki-light":"#1F2328"},children:'    subgraph D["1️⃣ Discovery"]'})}),`
+`,i.jsx(s.span,{"data-line":"",children:i.jsx(s.span,{style:{"--shiki-dark":"#E6EDF3","--shiki-light":"#1F2328"},children:'        D1["Host 获取工具列表"]'})}),`
+`,i.jsx(s.span,{"data-line":"",children:i.jsx(s.span,{style:{"--shiki-dark":"#E6EDF3","--shiki-light":"#1F2328"},children:'        D2["识别带 _meta.ui.resourceUri 的工具"]'})}),`
+`,i.jsx(s.span,{"data-line":"",children:i.jsx(s.span,{style:{"--shiki-dark":"#E6EDF3","--shiki-light":"#1F2328"},children:"        D1 --> D2"})}),`
+`,i.jsx(s.span,{"data-line":"",children:i.jsx(s.span,{style:{"--shiki-dark":"#E6EDF3","--shiki-light":"#1F2328"},children:"    end"})}),`
 `,i.jsx(s.span,{"data-line":"",children:" "}),`
-`,i.jsx(s.span,{"data-line":"",children:i.jsx(s.span,{children:"2. Initialize（初始化）"})}),`
-`,i.jsx(s.span,{"data-line":"",children:i.jsx(s.span,{children:"   └── Host 渲染 iframe"})}),`
-`,i.jsx(s.span,{"data-line":"",children:i.jsx(s.span,{children:"   └── View 发送 ui/initialize 握手请求"})}),`
-`,i.jsx(s.span,{"data-line":"",children:i.jsx(s.span,{children:"   └── Host 返回上下文和能力信息"})}),`
+`,i.jsx(s.span,{"data-line":"",children:i.jsx(s.span,{style:{"--shiki-dark":"#E6EDF3","--shiki-light":"#1F2328"},children:'    subgraph I["2️⃣ Initialize"]'})}),`
+`,i.jsx(s.span,{"data-line":"",children:i.jsx(s.span,{style:{"--shiki-dark":"#E6EDF3","--shiki-light":"#1F2328"},children:'        I1["Host 渲染 iframe"]'})}),`
+`,i.jsx(s.span,{"data-line":"",children:i.jsx(s.span,{style:{"--shiki-dark":"#E6EDF3","--shiki-light":"#1F2328"},children:'        I2["View 发送 ui/initialize"]'})}),`
+`,i.jsx(s.span,{"data-line":"",children:i.jsx(s.span,{style:{"--shiki-dark":"#E6EDF3","--shiki-light":"#1F2328"},children:'        I3["Host 返回上下文和能力"]'})}),`
+`,i.jsx(s.span,{"data-line":"",children:i.jsx(s.span,{style:{"--shiki-dark":"#E6EDF3","--shiki-light":"#1F2328"},children:"        I1 --> I2 --> I3"})}),`
+`,i.jsx(s.span,{"data-line":"",children:i.jsx(s.span,{style:{"--shiki-dark":"#E6EDF3","--shiki-light":"#1F2328"},children:"    end"})}),`
 `,i.jsx(s.span,{"data-line":"",children:" "}),`
-`,i.jsx(s.span,{"data-line":"",children:i.jsx(s.span,{children:"3. Data Delivery（数据交付）"})}),`
-`,i.jsx(s.span,{"data-line":"",children:i.jsx(s.span,{children:"   └── Host 发送 tool-input 通知（工具输入参数）"})}),`
-`,i.jsx(s.span,{"data-line":"",children:i.jsx(s.span,{children:"   └── Host 发送 tool-result 通知（工具执行结果）"})}),`
+`,i.jsx(s.span,{"data-line":"",children:i.jsx(s.span,{style:{"--shiki-dark":"#E6EDF3","--shiki-light":"#1F2328"},children:'    subgraph DD["3️⃣ Data Delivery"]'})}),`
+`,i.jsx(s.span,{"data-line":"",children:i.jsx(s.span,{style:{"--shiki-dark":"#E6EDF3","--shiki-light":"#1F2328"},children:'        DD1["Host 发送 tool-input"]'})}),`
+`,i.jsx(s.span,{"data-line":"",children:i.jsx(s.span,{style:{"--shiki-dark":"#E6EDF3","--shiki-light":"#1F2328"},children:'        DD2["Host 发送 tool-result"]'})}),`
+`,i.jsx(s.span,{"data-line":"",children:i.jsx(s.span,{style:{"--shiki-dark":"#E6EDF3","--shiki-light":"#1F2328"},children:"        DD1 --> DD2"})}),`
+`,i.jsx(s.span,{"data-line":"",children:i.jsx(s.span,{style:{"--shiki-dark":"#E6EDF3","--shiki-light":"#1F2328"},children:"    end"})}),`
 `,i.jsx(s.span,{"data-line":"",children:" "}),`
-`,i.jsx(s.span,{"data-line":"",children:i.jsx(s.span,{children:"4. Interactive（交互阶段）"})}),`
-`,i.jsx(s.span,{"data-line":"",children:i.jsx(s.span,{children:"   └── 用户与 View 交互"})}),`
-`,i.jsx(s.span,{"data-line":"",children:i.jsx(s.span,{children:"   └── View 可调用服务器工具"})}),`
-`,i.jsx(s.span,{"data-line":"",children:i.jsx(s.span,{children:"   └── View 可更新模型上下文"})}),`
+`,i.jsx(s.span,{"data-line":"",children:i.jsx(s.span,{style:{"--shiki-dark":"#E6EDF3","--shiki-light":"#1F2328"},children:'    subgraph Int["4️⃣ Interactive"]'})}),`
+`,i.jsx(s.span,{"data-line":"",children:i.jsx(s.span,{style:{"--shiki-dark":"#E6EDF3","--shiki-light":"#1F2328"},children:'        Int1["用户与 View 交互"]'})}),`
+`,i.jsx(s.span,{"data-line":"",children:i.jsx(s.span,{style:{"--shiki-dark":"#E6EDF3","--shiki-light":"#1F2328"},children:'        Int2["View 调用服务器工具"]'})}),`
+`,i.jsx(s.span,{"data-line":"",children:i.jsx(s.span,{style:{"--shiki-dark":"#E6EDF3","--shiki-light":"#1F2328"},children:'        Int3["View 更新模型上下文"]'})}),`
+`,i.jsx(s.span,{"data-line":"",children:i.jsx(s.span,{style:{"--shiki-dark":"#E6EDF3","--shiki-light":"#1F2328"},children:"    end"})}),`
 `,i.jsx(s.span,{"data-line":"",children:" "}),`
-`,i.jsx(s.span,{"data-line":"",children:i.jsx(s.span,{children:"5. Teardown（清理）"})}),`
-`,i.jsx(s.span,{"data-line":"",children:i.jsx(s.span,{children:"   └── Host 发送 ui/resource-teardown"})}),`
-`,i.jsx(s.span,{"data-line":"",children:i.jsx(s.span,{children:"   └── View 清理资源、断开连接"})})]})})}),`
+`,i.jsx(s.span,{"data-line":"",children:i.jsx(s.span,{style:{"--shiki-dark":"#E6EDF3","--shiki-light":"#1F2328"},children:'    subgraph T["5️⃣ Teardown"]'})}),`
+`,i.jsx(s.span,{"data-line":"",children:i.jsx(s.span,{style:{"--shiki-dark":"#E6EDF3","--shiki-light":"#1F2328"},children:'        T1["Host 发送 teardown"]'})}),`
+`,i.jsx(s.span,{"data-line":"",children:i.jsx(s.span,{style:{"--shiki-dark":"#E6EDF3","--shiki-light":"#1F2328"},children:'        T2["View 清理资源"]'})}),`
+`,i.jsx(s.span,{"data-line":"",children:i.jsx(s.span,{style:{"--shiki-dark":"#E6EDF3","--shiki-light":"#1F2328"},children:"        T1 --> T2"})}),`
+`,i.jsx(s.span,{"data-line":"",children:i.jsx(s.span,{style:{"--shiki-dark":"#E6EDF3","--shiki-light":"#1F2328"},children:"    end"})}),`
+`,i.jsx(s.span,{"data-line":"",children:" "}),`
+`,i.jsx(s.span,{"data-line":"",children:i.jsx(s.span,{style:{"--shiki-dark":"#E6EDF3","--shiki-light":"#1F2328"},children:"    D --> I --> DD --> Int --> T"})})]})})}),`
 `,i.jsx(s.h3,{children:"2.4 URI 方案与 MIME 类型"}),`
 `,i.jsxs(s.p,{children:[i.jsx(s.strong,{children:"UI Resource URI"}),"："]}),`
 `,i.jsx(s.figure,{"data-rehype-pretty-code-figure":"",children:i.jsx(s.pre,{tabIndex:"0","data-language":"text","data-theme":"github-dark-default github-light-default",children:i.jsx(s.code,{"data-language":"text","data-theme":"github-dark-default github-light-default",style:{display:"grid"},children:i.jsx(s.span,{"data-line":"",children:i.jsx(s.span,{children:"ui://server-name/resource-path.html"})})})})}),`
@@ -327,22 +339,40 @@ import{j as i}from"./index-FZiEhLxM.js";const n={title:"一文彻底搞懂 MCP A
 `,i.jsx(s.h3,{children:"5.3 通知类型"}),`
 `,i.jsxs(s.table,{children:[i.jsx(s.thead,{children:i.jsxs(s.tr,{children:[i.jsx(s.th,{children:"方法"}),i.jsx(s.th,{children:"方向"}),i.jsx(s.th,{children:"用途"})]})}),i.jsxs(s.tbody,{children:[i.jsxs(s.tr,{children:[i.jsx(s.td,{children:i.jsx(s.span,{"data-rehype-pretty-code-figure":"",children:i.jsx(s.code,{"data-language":"plaintext","data-theme":"github-dark-default github-light-default",children:i.jsx(s.span,{"data-line":"",children:i.jsx(s.span,{children:"ui/notifications/initialized"})})})})}),i.jsx(s.td,{children:"View → Host"}),i.jsx(s.td,{children:"初始化完成"})]}),i.jsxs(s.tr,{children:[i.jsx(s.td,{children:i.jsx(s.span,{"data-rehype-pretty-code-figure":"",children:i.jsx(s.code,{"data-language":"plaintext","data-theme":"github-dark-default github-light-default",children:i.jsx(s.span,{"data-line":"",children:i.jsx(s.span,{children:"ui/notifications/size-changed"})})})})}),i.jsx(s.td,{children:"View → Host"}),i.jsx(s.td,{children:"尺寸变化"})]}),i.jsxs(s.tr,{children:[i.jsx(s.td,{children:i.jsx(s.span,{"data-rehype-pretty-code-figure":"",children:i.jsx(s.code,{"data-language":"plaintext","data-theme":"github-dark-default github-light-default",children:i.jsx(s.span,{"data-line":"",children:i.jsx(s.span,{children:"ui/notifications/tool-input"})})})})}),i.jsx(s.td,{children:"Host → View"}),i.jsx(s.td,{children:"工具输入数据"})]}),i.jsxs(s.tr,{children:[i.jsx(s.td,{children:i.jsx(s.span,{"data-rehype-pretty-code-figure":"",children:i.jsx(s.code,{"data-language":"plaintext","data-theme":"github-dark-default github-light-default",children:i.jsx(s.span,{"data-line":"",children:i.jsx(s.span,{children:"ui/notifications/tool-input/partial"})})})})}),i.jsx(s.td,{children:"Host → View"}),i.jsx(s.td,{children:"流式输入（部分数据）"})]}),i.jsxs(s.tr,{children:[i.jsx(s.td,{children:i.jsx(s.span,{"data-rehype-pretty-code-figure":"",children:i.jsx(s.code,{"data-language":"plaintext","data-theme":"github-dark-default github-light-default",children:i.jsx(s.span,{"data-line":"",children:i.jsx(s.span,{children:"ui/notifications/tool-result"})})})})}),i.jsx(s.td,{children:"Host → View"}),i.jsx(s.td,{children:"工具结果"})]}),i.jsxs(s.tr,{children:[i.jsx(s.td,{children:i.jsx(s.span,{"data-rehype-pretty-code-figure":"",children:i.jsx(s.code,{"data-language":"plaintext","data-theme":"github-dark-default github-light-default",children:i.jsx(s.span,{"data-line":"",children:i.jsx(s.span,{children:"ui/notifications/tool-cancelled"})})})})}),i.jsx(s.td,{children:"Host → View"}),i.jsx(s.td,{children:"工具已取消"})]}),i.jsxs(s.tr,{children:[i.jsx(s.td,{children:i.jsx(s.span,{"data-rehype-pretty-code-figure":"",children:i.jsx(s.code,{"data-language":"plaintext","data-theme":"github-dark-default github-light-default",children:i.jsx(s.span,{"data-line":"",children:i.jsx(s.span,{children:"ui/notifications/host-context-changed"})})})})}),i.jsx(s.td,{children:"Host → View"}),i.jsx(s.td,{children:"宿主上下文变化"})]})]})]}),`
 `,i.jsx(s.h3,{children:"5.4 完整通信序列图"}),`
-`,i.jsx(s.figure,{"data-rehype-pretty-code-figure":"",children:i.jsx(s.pre,{tabIndex:"0","data-language":"plaintext","data-theme":"github-dark-default github-light-default",children:i.jsxs(s.code,{"data-language":"plaintext","data-theme":"github-dark-default github-light-default",style:{display:"grid"},children:[i.jsx(s.span,{"data-line":"",children:i.jsx(s.span,{children:"View                          Host                          Server"})}),`
-`,i.jsx(s.span,{"data-line":"",children:i.jsx(s.span,{children:"  │                             │                              │"})}),`
-`,i.jsx(s.span,{"data-line":"",children:i.jsx(s.span,{children:"  │◄────── render iframe ───────│                              │"})}),`
-`,i.jsx(s.span,{"data-line":"",children:i.jsx(s.span,{children:"  │                             │                              │"})}),`
-`,i.jsx(s.span,{"data-line":"",children:i.jsx(s.span,{children:"  │── ui/initialize ──────────►│                              │"})}),`
-`,i.jsx(s.span,{"data-line":"",children:i.jsx(s.span,{children:"  │◄─ {context, capabilities} ──│                              │"})}),`
-`,i.jsx(s.span,{"data-line":"",children:i.jsx(s.span,{children:"  │── ui/notifications/init ──►│                              │"})}),`
-`,i.jsx(s.span,{"data-line":"",children:i.jsx(s.span,{children:"  │                             │                              │"})}),`
-`,i.jsx(s.span,{"data-line":"",children:i.jsx(s.span,{children:"  │◄─ tool-input notification ──│◄───── tool call ────────────│"})}),`
-`,i.jsx(s.span,{"data-line":"",children:i.jsx(s.span,{children:"  │◄─ tool-result notification ─│◄───── tool result ──────────│"})}),`
-`,i.jsx(s.span,{"data-line":"",children:i.jsx(s.span,{children:"  │                             │                              │"})}),`
-`,i.jsx(s.span,{"data-line":"",children:i.jsx(s.span,{children:"  │── tools/call ─────────────►│── tools/call ───────────────►│"})}),`
-`,i.jsx(s.span,{"data-line":"",children:i.jsx(s.span,{children:"  │◄─ result ───────────────────│◄─ result ───────────────────│"})}),`
-`,i.jsx(s.span,{"data-line":"",children:i.jsx(s.span,{children:"  │                             │                              │"})}),`
-`,i.jsx(s.span,{"data-line":"",children:i.jsx(s.span,{children:"  │◄─ ui/resource-teardown ─────│                              │"})}),`
-`,i.jsx(s.span,{"data-line":"",children:i.jsx(s.span,{children:"  │── acknowledgment ──────────►│                              │"})})]})})}),`
+`,i.jsx(s.figure,{"data-rehype-pretty-code-figure":"",children:i.jsx(s.pre,{tabIndex:"0","data-language":"mermaid","data-theme":"github-dark-default github-light-default",children:i.jsxs(s.code,{"data-language":"mermaid","data-theme":"github-dark-default github-light-default",style:{display:"grid"},children:[i.jsx(s.span,{"data-line":"",children:i.jsx(s.span,{style:{"--shiki-dark":"#E6EDF3","--shiki-light":"#1F2328"},children:"sequenceDiagram"})}),`
+`,i.jsx(s.span,{"data-line":"",children:i.jsx(s.span,{style:{"--shiki-dark":"#E6EDF3","--shiki-light":"#1F2328"},children:"    participant V as View (iframe)"})}),`
+`,i.jsx(s.span,{"data-line":"",children:i.jsx(s.span,{style:{"--shiki-dark":"#E6EDF3","--shiki-light":"#1F2328"},children:"    participant H as Host (AppBridge)"})}),`
+`,i.jsx(s.span,{"data-line":"",children:i.jsx(s.span,{style:{"--shiki-dark":"#E6EDF3","--shiki-light":"#1F2328"},children:"    participant S as MCP Server"})}),`
+`,i.jsx(s.span,{"data-line":"",children:" "}),`
+`,i.jsx(s.span,{"data-line":"",children:i.jsx(s.span,{style:{"--shiki-dark":"#E6EDF3","--shiki-light":"#1F2328"},children:"    rect rgb(40, 35, 30)"})}),`
+`,i.jsx(s.span,{"data-line":"",children:i.jsx(s.span,{style:{"--shiki-dark":"#E6EDF3","--shiki-light":"#1F2328"},children:"        Note over V,H: 初始化阶段"})}),`
+`,i.jsx(s.span,{"data-line":"",children:i.jsx(s.span,{style:{"--shiki-dark":"#E6EDF3","--shiki-light":"#1F2328"},children:"        H->>V: render iframe"})}),`
+`,i.jsx(s.span,{"data-line":"",children:i.jsx(s.span,{style:{"--shiki-dark":"#E6EDF3","--shiki-light":"#1F2328"},children:"        V->>H: ui/initialize"})}),`
+`,i.jsx(s.span,{"data-line":"",children:i.jsx(s.span,{style:{"--shiki-dark":"#E6EDF3","--shiki-light":"#1F2328"},children:"        H-->>V: {context, capabilities}"})}),`
+`,i.jsx(s.span,{"data-line":"",children:i.jsx(s.span,{style:{"--shiki-dark":"#E6EDF3","--shiki-light":"#1F2328"},children:"        V->>H: ui/notifications/initialized"})}),`
+`,i.jsx(s.span,{"data-line":"",children:i.jsx(s.span,{style:{"--shiki-dark":"#E6EDF3","--shiki-light":"#1F2328"},children:"    end"})}),`
+`,i.jsx(s.span,{"data-line":"",children:" "}),`
+`,i.jsx(s.span,{"data-line":"",children:i.jsx(s.span,{style:{"--shiki-dark":"#E6EDF3","--shiki-light":"#1F2328"},children:"    rect rgb(35, 40, 35)"})}),`
+`,i.jsx(s.span,{"data-line":"",children:i.jsx(s.span,{style:{"--shiki-dark":"#E6EDF3","--shiki-light":"#1F2328"},children:"        Note over V,S: 数据交付阶段"})}),`
+`,i.jsx(s.span,{"data-line":"",children:i.jsx(s.span,{style:{"--shiki-dark":"#E6EDF3","--shiki-light":"#1F2328"},children:"        S->>H: tool call"})}),`
+`,i.jsx(s.span,{"data-line":"",children:i.jsx(s.span,{style:{"--shiki-dark":"#E6EDF3","--shiki-light":"#1F2328"},children:"        H->>V: tool-input notification"})}),`
+`,i.jsx(s.span,{"data-line":"",children:i.jsx(s.span,{style:{"--shiki-dark":"#E6EDF3","--shiki-light":"#1F2328"},children:"        S->>H: tool result"})}),`
+`,i.jsx(s.span,{"data-line":"",children:i.jsx(s.span,{style:{"--shiki-dark":"#E6EDF3","--shiki-light":"#1F2328"},children:"        H->>V: tool-result notification"})}),`
+`,i.jsx(s.span,{"data-line":"",children:i.jsx(s.span,{style:{"--shiki-dark":"#E6EDF3","--shiki-light":"#1F2328"},children:"    end"})}),`
+`,i.jsx(s.span,{"data-line":"",children:" "}),`
+`,i.jsx(s.span,{"data-line":"",children:i.jsx(s.span,{style:{"--shiki-dark":"#E6EDF3","--shiki-light":"#1F2328"},children:"    rect rgb(35, 35, 40)"})}),`
+`,i.jsx(s.span,{"data-line":"",children:i.jsx(s.span,{style:{"--shiki-dark":"#E6EDF3","--shiki-light":"#1F2328"},children:"        Note over V,S: 交互阶段"})}),`
+`,i.jsx(s.span,{"data-line":"",children:i.jsx(s.span,{style:{"--shiki-dark":"#E6EDF3","--shiki-light":"#1F2328"},children:"        V->>H: tools/call"})}),`
+`,i.jsx(s.span,{"data-line":"",children:i.jsx(s.span,{style:{"--shiki-dark":"#E6EDF3","--shiki-light":"#1F2328"},children:"        H->>S: tools/call"})}),`
+`,i.jsx(s.span,{"data-line":"",children:i.jsx(s.span,{style:{"--shiki-dark":"#E6EDF3","--shiki-light":"#1F2328"},children:"        S-->>H: result"})}),`
+`,i.jsx(s.span,{"data-line":"",children:i.jsx(s.span,{style:{"--shiki-dark":"#E6EDF3","--shiki-light":"#1F2328"},children:"        H-->>V: result"})}),`
+`,i.jsx(s.span,{"data-line":"",children:i.jsx(s.span,{style:{"--shiki-dark":"#E6EDF3","--shiki-light":"#1F2328"},children:"    end"})}),`
+`,i.jsx(s.span,{"data-line":"",children:" "}),`
+`,i.jsx(s.span,{"data-line":"",children:i.jsx(s.span,{style:{"--shiki-dark":"#E6EDF3","--shiki-light":"#1F2328"},children:"    rect rgb(40, 30, 30)"})}),`
+`,i.jsx(s.span,{"data-line":"",children:i.jsx(s.span,{style:{"--shiki-dark":"#E6EDF3","--shiki-light":"#1F2328"},children:"        Note over V,H: 清理阶段"})}),`
+`,i.jsx(s.span,{"data-line":"",children:i.jsx(s.span,{style:{"--shiki-dark":"#E6EDF3","--shiki-light":"#1F2328"},children:"        H->>V: ui/resource-teardown"})}),`
+`,i.jsx(s.span,{"data-line":"",children:i.jsx(s.span,{style:{"--shiki-dark":"#E6EDF3","--shiki-light":"#1F2328"},children:"        V-->>H: acknowledgment"})}),`
+`,i.jsx(s.span,{"data-line":"",children:i.jsx(s.span,{style:{"--shiki-dark":"#E6EDF3","--shiki-light":"#1F2328"},children:"    end"})})]})})}),`
 `,i.jsx(s.hr,{}),`
 `,i.jsx(s.h2,{children:"第六部分：安全模型"}),`
 `,i.jsx(s.h3,{children:"6.1 多层防护"}),`
@@ -373,9 +403,13 @@ import{j as i}from"./index-FZiEhLxM.js";const n={title:"一文彻底搞懂 MCP A
 `,i.jsxs(s.p,{children:[i.jsx(s.strong,{children:"注意"}),"：",i.jsx(s.span,{"data-rehype-pretty-code-figure":"",children:i.jsx(s.code,{"data-language":"plaintext","data-theme":"github-dark-default github-light-default",children:i.jsx(s.span,{"data-line":"",children:i.jsx(s.span,{children:"allow-same-origin"})})})})," 是 postMessage 通信的必要条件，但不会授予 App 访问父窗口 DOM 的能力。"]}),`
 `,i.jsx(s.h3,{children:"6.3 双层 iframe 架构（推荐）"}),`
 `,i.jsxs(s.p,{children:["为了进一步增强安全性，规范建议使用",i.jsx(s.strong,{children:"双层 iframe 架构"}),"："]}),`
-`,i.jsx(s.figure,{"data-rehype-pretty-code-figure":"",children:i.jsx(s.pre,{tabIndex:"0","data-language":"plaintext","data-theme":"github-dark-default github-light-default",children:i.jsxs(s.code,{"data-language":"plaintext","data-theme":"github-dark-default github-light-default",style:{display:"grid"},children:[i.jsx(s.span,{"data-line":"",children:i.jsx(s.span,{children:"Host Window"})}),`
-`,i.jsx(s.span,{"data-line":"",children:i.jsx(s.span,{children:"  └── Sandbox iframe (验证来源)"})}),`
-`,i.jsx(s.span,{"data-line":"",children:i.jsx(s.span,{children:"        └── Resource iframe (运行 App)"})})]})})}),`
+`,i.jsx(s.figure,{"data-rehype-pretty-code-figure":"",children:i.jsx(s.pre,{tabIndex:"0","data-language":"mermaid","data-theme":"github-dark-default github-light-default",children:i.jsxs(s.code,{"data-language":"mermaid","data-theme":"github-dark-default github-light-default",style:{display:"grid"},children:[i.jsx(s.span,{"data-line":"",children:i.jsx(s.span,{style:{"--shiki-dark":"#E6EDF3","--shiki-light":"#1F2328"},children:"flowchart TB"})}),`
+`,i.jsx(s.span,{"data-line":"",children:i.jsx(s.span,{style:{"--shiki-dark":"#E6EDF3","--shiki-light":"#1F2328"},children:'    HW["🪟 Host Window"]'})}),`
+`,i.jsx(s.span,{"data-line":"",children:i.jsx(s.span,{style:{"--shiki-dark":"#E6EDF3","--shiki-light":"#1F2328"},children:'    SI["🛡️ Sandbox iframe<br/>(验证来源)"]'})}),`
+`,i.jsx(s.span,{"data-line":"",children:i.jsx(s.span,{style:{"--shiki-dark":"#E6EDF3","--shiki-light":"#1F2328"},children:'    RI["📱 Resource iframe<br/>(运行 App)"]'})}),`
+`,i.jsx(s.span,{"data-line":"",children:" "}),`
+`,i.jsx(s.span,{"data-line":"",children:i.jsx(s.span,{style:{"--shiki-dark":"#E6EDF3","--shiki-light":"#1F2328"},children:"    HW --> SI"})}),`
+`,i.jsx(s.span,{"data-line":"",children:i.jsx(s.span,{style:{"--shiki-dark":"#E6EDF3","--shiki-light":"#1F2328"},children:"    SI --> RI"})})]})})}),`
 `,i.jsxs(s.ul,{children:[`
 `,i.jsxs(s.li,{children:[i.jsx(s.strong,{children:"外层 iframe"}),"：作为安全代理，验证内层消息的来源"]}),`
 `,i.jsxs(s.li,{children:[i.jsx(s.strong,{children:"内层 iframe"}),"：实际运行 App"]}),`

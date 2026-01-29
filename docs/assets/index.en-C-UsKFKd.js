@@ -1,4 +1,4 @@
-import{j as i}from"./index-FZiEhLxM.js";const l={title:"The Complete Guide to MCP Apps: From Protocol Specification to Practical Development",description:"A comprehensive deep dive into MCP App architecture, protocol specification, SDK APIs, and best practices for building interactive UI for AI Agents",date:"2026-01-28",tags:["MCP","AI Agent","UI","SDK","Protocol"],lang:"en",author:"use-mcp.dev"};function n(e){const s={a:"a",code:"code",figure:"figure",h2:"h2",h3:"h3",h4:"h4",hr:"hr",li:"li",ol:"ol",p:"p",pre:"pre",span:"span",strong:"strong",table:"table",tbody:"tbody",td:"td",th:"th",thead:"thead",tr:"tr",ul:"ul",...e.components};return i.jsxs(i.Fragment,{children:[i.jsx(s.h2,{children:"TL;DR"}),`
+import{j as i}from"./index-BgDi2SJQ.js";const l={title:"The Complete Guide to MCP Apps: From Protocol Specification to Practical Development",description:"A comprehensive deep dive into MCP App architecture, protocol specification, SDK APIs, and best practices for building interactive UI for AI Agents",date:"2026-01-28",tags:["MCP","AI Agent","UI","SDK","Protocol"],lang:"en",author:"use-mcp.dev"};function h(e){const s={a:"a",code:"code",figure:"figure",h2:"h2",h3:"h3",h4:"h4",hr:"hr",li:"li",ol:"ol",p:"p",pre:"pre",span:"span",strong:"strong",table:"table",tbody:"tbody",td:"td",th:"th",thead:"thead",tr:"tr",ul:"ul",...e.components};return i.jsxs(i.Fragment,{children:[i.jsx(s.h2,{children:"TL;DR"}),`
 `,i.jsxs(s.ul,{children:[`
 `,i.jsxs(s.li,{children:[i.jsx(s.strong,{children:"What is MCP App"}),": Interactive UI components running in sandboxed iframes within MCP hosts, enabling AI Agents to return visual interfaces instead of plain text"]}),`
 `,i.jsxs(s.li,{children:[i.jsx(s.strong,{children:"Core Formula"}),": MCP App = Tool + UI Resource, linked via ",i.jsx(s.span,{"data-rehype-pretty-code-figure":"",children:i.jsx(s.code,{"data-language":"plaintext","data-theme":"github-dark-default github-light-default",children:i.jsx(s.span,{"data-line":"",children:i.jsx(s.span,{children:"_meta.ui.resourceUri"})})})})]}),`
@@ -59,30 +59,29 @@ import{j as i}from"./index-FZiEhLxM.js";const l={title:"The Complete Guide to MC
 `,i.jsxs(s.table,{children:[i.jsx(s.thead,{children:i.jsxs(s.tr,{children:[i.jsx(s.th,{children:"Feature"}),i.jsx(s.th,{children:"Traditional Web App"}),i.jsx(s.th,{children:"MCP App"})]})}),i.jsxs(s.tbody,{children:[i.jsxs(s.tr,{children:[i.jsx(s.td,{children:i.jsx(s.strong,{children:"Context"})}),i.jsx(s.td,{children:"Separate page, leaving conversation"}),i.jsx(s.td,{children:"Embedded in conversation flow"})]}),i.jsxs(s.tr,{children:[i.jsx(s.td,{children:i.jsx(s.strong,{children:"Data Flow"})}),i.jsx(s.td,{children:"Requires own API, authentication"}),i.jsx(s.td,{children:"Can call MCP server tools directly"})]}),i.jsxs(s.tr,{children:[i.jsx(s.td,{children:i.jsx(s.strong,{children:"Integration"})}),i.jsx(s.td,{children:"Must implement integrations separately"}),i.jsx(s.td,{children:"Can delegate to host's connected capabilities"})]}),i.jsxs(s.tr,{children:[i.jsx(s.td,{children:i.jsx(s.strong,{children:"Security Isolation"})}),i.jsx(s.td,{children:"Full trust or full isolation"}),i.jsx(s.td,{children:"iframe sandbox + fine-grained CSP"})]})]})]}),`
 `,i.jsx(s.h3,{children:"2.2 Three-Layer Architecture"}),`
 `,i.jsx(s.p,{children:"MCP App architecture is divided into three layers:"}),`
-`,i.jsx(s.figure,{"data-rehype-pretty-code-figure":"",children:i.jsx(s.pre,{tabIndex:"0","data-language":"plaintext","data-theme":"github-dark-default github-light-default",children:i.jsxs(s.code,{"data-language":"plaintext","data-theme":"github-dark-default github-light-default",style:{display:"grid"},children:[i.jsx(s.span,{"data-line":"",children:i.jsx(s.span,{children:"┌─────────────────────────────────────────────────────┐"})}),`
-`,i.jsx(s.span,{"data-line":"",children:i.jsx(s.span,{children:"│                    MCP Server                        │"})}),`
-`,i.jsx(s.span,{"data-line":"",children:i.jsx(s.span,{children:"│  - registerAppTool(): Register tools with UI         │"})}),`
-`,i.jsx(s.span,{"data-line":"",children:i.jsx(s.span,{children:"│  - registerAppResource(): Register UI resources      │"})}),`
-`,i.jsx(s.span,{"data-line":"",children:i.jsx(s.span,{children:"│  - Handle tool calls, return structured data         │"})}),`
-`,i.jsx(s.span,{"data-line":"",children:i.jsx(s.span,{children:"└───────────────────────┬─────────────────────────────┘"})}),`
-`,i.jsx(s.span,{"data-line":"",children:i.jsx(s.span,{children:"                        │ MCP Protocol (JSON-RPC)"})}),`
-`,i.jsx(s.span,{"data-line":"",children:i.jsx(s.span,{children:"                        ▼"})}),`
-`,i.jsx(s.span,{"data-line":"",children:i.jsx(s.span,{children:"┌─────────────────────────────────────────────────────┐"})}),`
-`,i.jsx(s.span,{"data-line":"",children:i.jsx(s.span,{children:"│                    Host (AppBridge)                  │"})}),`
-`,i.jsx(s.span,{"data-line":"",children:i.jsx(s.span,{children:"│  - Connect to MCP servers                            │"})}),`
-`,i.jsx(s.span,{"data-line":"",children:i.jsx(s.span,{children:"│  - Manage iframe sandbox                             │"})}),`
-`,i.jsx(s.span,{"data-line":"",children:i.jsx(s.span,{children:"│  - Forward requests/responses                        │"})}),`
-`,i.jsx(s.span,{"data-line":"",children:i.jsx(s.span,{children:"│  - Send tool input/results to View                   │"})}),`
-`,i.jsx(s.span,{"data-line":"",children:i.jsx(s.span,{children:"└───────────────────────┬─────────────────────────────┘"})}),`
-`,i.jsx(s.span,{"data-line":"",children:i.jsx(s.span,{children:"                        │ postMessage (JSON-RPC)"})}),`
-`,i.jsx(s.span,{"data-line":"",children:i.jsx(s.span,{children:"                        ▼"})}),`
-`,i.jsx(s.span,{"data-line":"",children:i.jsx(s.span,{children:"┌─────────────────────────────────────────────────────┐"})}),`
-`,i.jsx(s.span,{"data-line":"",children:i.jsx(s.span,{children:"│                    View (App class)                  │"})}),`
-`,i.jsx(s.span,{"data-line":"",children:i.jsx(s.span,{children:"│  - Runs inside iframe                                │"})}),`
-`,i.jsx(s.span,{"data-line":"",children:i.jsx(s.span,{children:"│  - Receives tool inputs and results                  │"})}),`
-`,i.jsx(s.span,{"data-line":"",children:i.jsx(s.span,{children:"│  - Can call server tools                             │"})}),`
-`,i.jsx(s.span,{"data-line":"",children:i.jsx(s.span,{children:"│  - Can send messages to conversation                 │"})}),`
-`,i.jsx(s.span,{"data-line":"",children:i.jsx(s.span,{children:"└─────────────────────────────────────────────────────┘"})})]})})}),`
+`,i.jsx(s.figure,{"data-rehype-pretty-code-figure":"",children:i.jsx(s.pre,{tabIndex:"0","data-language":"mermaid","data-theme":"github-dark-default github-light-default",children:i.jsxs(s.code,{"data-language":"mermaid","data-theme":"github-dark-default github-light-default",style:{display:"grid"},children:[i.jsx(s.span,{"data-line":"",children:i.jsx(s.span,{style:{"--shiki-dark":"#E6EDF3","--shiki-light":"#1F2328"},children:"flowchart TB"})}),`
+`,i.jsx(s.span,{"data-line":"",children:i.jsx(s.span,{style:{"--shiki-dark":"#E6EDF3","--shiki-light":"#1F2328"},children:'    subgraph Server["🖥️ MCP Server"]'})}),`
+`,i.jsx(s.span,{"data-line":"",children:i.jsx(s.span,{style:{"--shiki-dark":"#E6EDF3","--shiki-light":"#1F2328"},children:'        S1["registerAppTool(): Register tools with UI"]'})}),`
+`,i.jsx(s.span,{"data-line":"",children:i.jsx(s.span,{style:{"--shiki-dark":"#E6EDF3","--shiki-light":"#1F2328"},children:'        S2["registerAppResource(): Register UI resources"]'})}),`
+`,i.jsx(s.span,{"data-line":"",children:i.jsx(s.span,{style:{"--shiki-dark":"#E6EDF3","--shiki-light":"#1F2328"},children:'        S3["Handle tool calls, return structured data"]'})}),`
+`,i.jsx(s.span,{"data-line":"",children:i.jsx(s.span,{style:{"--shiki-dark":"#E6EDF3","--shiki-light":"#1F2328"},children:"    end"})}),`
+`,i.jsx(s.span,{"data-line":"",children:" "}),`
+`,i.jsx(s.span,{"data-line":"",children:i.jsx(s.span,{style:{"--shiki-dark":"#E6EDF3","--shiki-light":"#1F2328"},children:'    subgraph Host["🌐 Host (AppBridge)"]'})}),`
+`,i.jsx(s.span,{"data-line":"",children:i.jsx(s.span,{style:{"--shiki-dark":"#E6EDF3","--shiki-light":"#1F2328"},children:'        H1["Connect to MCP servers"]'})}),`
+`,i.jsx(s.span,{"data-line":"",children:i.jsx(s.span,{style:{"--shiki-dark":"#E6EDF3","--shiki-light":"#1F2328"},children:'        H2["Manage iframe sandbox"]'})}),`
+`,i.jsx(s.span,{"data-line":"",children:i.jsx(s.span,{style:{"--shiki-dark":"#E6EDF3","--shiki-light":"#1F2328"},children:'        H3["Forward requests/responses"]'})}),`
+`,i.jsx(s.span,{"data-line":"",children:i.jsx(s.span,{style:{"--shiki-dark":"#E6EDF3","--shiki-light":"#1F2328"},children:'        H4["Send tool input/results to View"]'})}),`
+`,i.jsx(s.span,{"data-line":"",children:i.jsx(s.span,{style:{"--shiki-dark":"#E6EDF3","--shiki-light":"#1F2328"},children:"    end"})}),`
+`,i.jsx(s.span,{"data-line":"",children:" "}),`
+`,i.jsx(s.span,{"data-line":"",children:i.jsx(s.span,{style:{"--shiki-dark":"#E6EDF3","--shiki-light":"#1F2328"},children:'    subgraph View["📱 View (App class)"]'})}),`
+`,i.jsx(s.span,{"data-line":"",children:i.jsx(s.span,{style:{"--shiki-dark":"#E6EDF3","--shiki-light":"#1F2328"},children:'        V1["Runs inside iframe"]'})}),`
+`,i.jsx(s.span,{"data-line":"",children:i.jsx(s.span,{style:{"--shiki-dark":"#E6EDF3","--shiki-light":"#1F2328"},children:'        V2["Receives tool inputs and results"]'})}),`
+`,i.jsx(s.span,{"data-line":"",children:i.jsx(s.span,{style:{"--shiki-dark":"#E6EDF3","--shiki-light":"#1F2328"},children:'        V3["Can call server tools"]'})}),`
+`,i.jsx(s.span,{"data-line":"",children:i.jsx(s.span,{style:{"--shiki-dark":"#E6EDF3","--shiki-light":"#1F2328"},children:'        V4["Can send messages to conversation"]'})}),`
+`,i.jsx(s.span,{"data-line":"",children:i.jsx(s.span,{style:{"--shiki-dark":"#E6EDF3","--shiki-light":"#1F2328"},children:"    end"})}),`
+`,i.jsx(s.span,{"data-line":"",children:" "}),`
+`,i.jsx(s.span,{"data-line":"",children:i.jsx(s.span,{style:{"--shiki-dark":"#E6EDF3","--shiki-light":"#1F2328"},children:'    Server -->|"MCP Protocol (JSON-RPC)"| Host'})}),`
+`,i.jsx(s.span,{"data-line":"",children:i.jsx(s.span,{style:{"--shiki-dark":"#E6EDF3","--shiki-light":"#1F2328"},children:'    Host -->|"postMessage (JSON-RPC)"| View'})})]})})}),`
 `,i.jsxs(s.p,{children:[i.jsx(s.strong,{children:"Three-layer Responsibilities"}),":"]}),`
 `,i.jsxs(s.ol,{children:[`
 `,i.jsxs(s.li,{children:[i.jsx(s.strong,{children:"Server Layer"}),": MCP server, responsible for registering tools, handling business logic, returning data"]}),`
@@ -91,26 +90,39 @@ import{j as i}from"./index-FZiEhLxM.js";const l={title:"The Complete Guide to MC
 `]}),`
 `,i.jsx(s.h3,{children:"2.3 Lifecycle"}),`
 `,i.jsx(s.p,{children:"The complete lifecycle of an MCP App:"}),`
-`,i.jsx(s.figure,{"data-rehype-pretty-code-figure":"",children:i.jsx(s.pre,{tabIndex:"0","data-language":"plaintext","data-theme":"github-dark-default github-light-default",children:i.jsxs(s.code,{"data-language":"plaintext","data-theme":"github-dark-default github-light-default",style:{display:"grid"},children:[i.jsx(s.span,{"data-line":"",children:i.jsx(s.span,{children:"1. Discovery"})}),`
-`,i.jsx(s.span,{"data-line":"",children:i.jsx(s.span,{children:"   └── Host fetches tool list, identifies tools with _meta.ui.resourceUri"})}),`
+`,i.jsx(s.figure,{"data-rehype-pretty-code-figure":"",children:i.jsx(s.pre,{tabIndex:"0","data-language":"mermaid","data-theme":"github-dark-default github-light-default",children:i.jsxs(s.code,{"data-language":"mermaid","data-theme":"github-dark-default github-light-default",style:{display:"grid"},children:[i.jsx(s.span,{"data-line":"",children:i.jsx(s.span,{style:{"--shiki-dark":"#E6EDF3","--shiki-light":"#1F2328"},children:"flowchart LR"})}),`
+`,i.jsx(s.span,{"data-line":"",children:i.jsx(s.span,{style:{"--shiki-dark":"#E6EDF3","--shiki-light":"#1F2328"},children:'    subgraph D["1️⃣ Discovery"]'})}),`
+`,i.jsx(s.span,{"data-line":"",children:i.jsx(s.span,{style:{"--shiki-dark":"#E6EDF3","--shiki-light":"#1F2328"},children:'        D1["Host fetches tool list"]'})}),`
+`,i.jsx(s.span,{"data-line":"",children:i.jsx(s.span,{style:{"--shiki-dark":"#E6EDF3","--shiki-light":"#1F2328"},children:'        D2["Identifies tools with _meta.ui.resourceUri"]'})}),`
+`,i.jsx(s.span,{"data-line":"",children:i.jsx(s.span,{style:{"--shiki-dark":"#E6EDF3","--shiki-light":"#1F2328"},children:"        D1 --> D2"})}),`
+`,i.jsx(s.span,{"data-line":"",children:i.jsx(s.span,{style:{"--shiki-dark":"#E6EDF3","--shiki-light":"#1F2328"},children:"    end"})}),`
 `,i.jsx(s.span,{"data-line":"",children:" "}),`
-`,i.jsx(s.span,{"data-line":"",children:i.jsx(s.span,{children:"2. Initialize"})}),`
-`,i.jsx(s.span,{"data-line":"",children:i.jsx(s.span,{children:"   └── Host renders iframe"})}),`
-`,i.jsx(s.span,{"data-line":"",children:i.jsx(s.span,{children:"   └── View sends ui/initialize handshake request"})}),`
-`,i.jsx(s.span,{"data-line":"",children:i.jsx(s.span,{children:"   └── Host returns context and capabilities"})}),`
+`,i.jsx(s.span,{"data-line":"",children:i.jsx(s.span,{style:{"--shiki-dark":"#E6EDF3","--shiki-light":"#1F2328"},children:'    subgraph I["2️⃣ Initialize"]'})}),`
+`,i.jsx(s.span,{"data-line":"",children:i.jsx(s.span,{style:{"--shiki-dark":"#E6EDF3","--shiki-light":"#1F2328"},children:'        I1["Host renders iframe"]'})}),`
+`,i.jsx(s.span,{"data-line":"",children:i.jsx(s.span,{style:{"--shiki-dark":"#E6EDF3","--shiki-light":"#1F2328"},children:'        I2["View sends ui/initialize"]'})}),`
+`,i.jsx(s.span,{"data-line":"",children:i.jsx(s.span,{style:{"--shiki-dark":"#E6EDF3","--shiki-light":"#1F2328"},children:'        I3["Host returns context & capabilities"]'})}),`
+`,i.jsx(s.span,{"data-line":"",children:i.jsx(s.span,{style:{"--shiki-dark":"#E6EDF3","--shiki-light":"#1F2328"},children:"        I1 --> I2 --> I3"})}),`
+`,i.jsx(s.span,{"data-line":"",children:i.jsx(s.span,{style:{"--shiki-dark":"#E6EDF3","--shiki-light":"#1F2328"},children:"    end"})}),`
 `,i.jsx(s.span,{"data-line":"",children:" "}),`
-`,i.jsx(s.span,{"data-line":"",children:i.jsx(s.span,{children:"3. Data Delivery"})}),`
-`,i.jsx(s.span,{"data-line":"",children:i.jsx(s.span,{children:"   └── Host sends tool-input notification (tool input parameters)"})}),`
-`,i.jsx(s.span,{"data-line":"",children:i.jsx(s.span,{children:"   └── Host sends tool-result notification (tool execution results)"})}),`
+`,i.jsx(s.span,{"data-line":"",children:i.jsx(s.span,{style:{"--shiki-dark":"#E6EDF3","--shiki-light":"#1F2328"},children:'    subgraph DD["3️⃣ Data Delivery"]'})}),`
+`,i.jsx(s.span,{"data-line":"",children:i.jsx(s.span,{style:{"--shiki-dark":"#E6EDF3","--shiki-light":"#1F2328"},children:'        DD1["Host sends tool-input"]'})}),`
+`,i.jsx(s.span,{"data-line":"",children:i.jsx(s.span,{style:{"--shiki-dark":"#E6EDF3","--shiki-light":"#1F2328"},children:'        DD2["Host sends tool-result"]'})}),`
+`,i.jsx(s.span,{"data-line":"",children:i.jsx(s.span,{style:{"--shiki-dark":"#E6EDF3","--shiki-light":"#1F2328"},children:"        DD1 --> DD2"})}),`
+`,i.jsx(s.span,{"data-line":"",children:i.jsx(s.span,{style:{"--shiki-dark":"#E6EDF3","--shiki-light":"#1F2328"},children:"    end"})}),`
 `,i.jsx(s.span,{"data-line":"",children:" "}),`
-`,i.jsx(s.span,{"data-line":"",children:i.jsx(s.span,{children:"4. Interactive"})}),`
-`,i.jsx(s.span,{"data-line":"",children:i.jsx(s.span,{children:"   └── User interacts with View"})}),`
-`,i.jsx(s.span,{"data-line":"",children:i.jsx(s.span,{children:"   └── View can call server tools"})}),`
-`,i.jsx(s.span,{"data-line":"",children:i.jsx(s.span,{children:"   └── View can update model context"})}),`
+`,i.jsx(s.span,{"data-line":"",children:i.jsx(s.span,{style:{"--shiki-dark":"#E6EDF3","--shiki-light":"#1F2328"},children:'    subgraph Int["4️⃣ Interactive"]'})}),`
+`,i.jsx(s.span,{"data-line":"",children:i.jsx(s.span,{style:{"--shiki-dark":"#E6EDF3","--shiki-light":"#1F2328"},children:'        Int1["User interacts with View"]'})}),`
+`,i.jsx(s.span,{"data-line":"",children:i.jsx(s.span,{style:{"--shiki-dark":"#E6EDF3","--shiki-light":"#1F2328"},children:'        Int2["View calls server tools"]'})}),`
+`,i.jsx(s.span,{"data-line":"",children:i.jsx(s.span,{style:{"--shiki-dark":"#E6EDF3","--shiki-light":"#1F2328"},children:'        Int3["View updates model context"]'})}),`
+`,i.jsx(s.span,{"data-line":"",children:i.jsx(s.span,{style:{"--shiki-dark":"#E6EDF3","--shiki-light":"#1F2328"},children:"    end"})}),`
 `,i.jsx(s.span,{"data-line":"",children:" "}),`
-`,i.jsx(s.span,{"data-line":"",children:i.jsx(s.span,{children:"5. Teardown"})}),`
-`,i.jsx(s.span,{"data-line":"",children:i.jsx(s.span,{children:"   └── Host sends ui/resource-teardown"})}),`
-`,i.jsx(s.span,{"data-line":"",children:i.jsx(s.span,{children:"   └── View cleans up resources, disconnects"})})]})})}),`
+`,i.jsx(s.span,{"data-line":"",children:i.jsx(s.span,{style:{"--shiki-dark":"#E6EDF3","--shiki-light":"#1F2328"},children:'    subgraph T["5️⃣ Teardown"]'})}),`
+`,i.jsx(s.span,{"data-line":"",children:i.jsx(s.span,{style:{"--shiki-dark":"#E6EDF3","--shiki-light":"#1F2328"},children:'        T1["Host sends teardown"]'})}),`
+`,i.jsx(s.span,{"data-line":"",children:i.jsx(s.span,{style:{"--shiki-dark":"#E6EDF3","--shiki-light":"#1F2328"},children:'        T2["View cleans up resources"]'})}),`
+`,i.jsx(s.span,{"data-line":"",children:i.jsx(s.span,{style:{"--shiki-dark":"#E6EDF3","--shiki-light":"#1F2328"},children:"        T1 --> T2"})}),`
+`,i.jsx(s.span,{"data-line":"",children:i.jsx(s.span,{style:{"--shiki-dark":"#E6EDF3","--shiki-light":"#1F2328"},children:"    end"})}),`
+`,i.jsx(s.span,{"data-line":"",children:" "}),`
+`,i.jsx(s.span,{"data-line":"",children:i.jsx(s.span,{style:{"--shiki-dark":"#E6EDF3","--shiki-light":"#1F2328"},children:"    D --> I --> DD --> Int --> T"})})]})})}),`
 `,i.jsx(s.h3,{children:"2.4 URI Scheme and MIME Type"}),`
 `,i.jsxs(s.p,{children:[i.jsx(s.strong,{children:"UI Resource URI"}),":"]}),`
 `,i.jsx(s.figure,{"data-rehype-pretty-code-figure":"",children:i.jsx(s.pre,{tabIndex:"0","data-language":"plaintext","data-theme":"github-dark-default github-light-default",children:i.jsx(s.code,{"data-language":"plaintext","data-theme":"github-dark-default github-light-default",style:{display:"grid"},children:i.jsx(s.span,{"data-line":"",children:i.jsx(s.span,{children:"ui://server-name/resource-path.html"})})})})}),`
@@ -327,22 +339,40 @@ import{j as i}from"./index-FZiEhLxM.js";const l={title:"The Complete Guide to MC
 `,i.jsx(s.h3,{children:"5.3 Notification Types"}),`
 `,i.jsxs(s.table,{children:[i.jsx(s.thead,{children:i.jsxs(s.tr,{children:[i.jsx(s.th,{children:"Method"}),i.jsx(s.th,{children:"Direction"}),i.jsx(s.th,{children:"Purpose"})]})}),i.jsxs(s.tbody,{children:[i.jsxs(s.tr,{children:[i.jsx(s.td,{children:i.jsx(s.span,{"data-rehype-pretty-code-figure":"",children:i.jsx(s.code,{"data-language":"plaintext","data-theme":"github-dark-default github-light-default",children:i.jsx(s.span,{"data-line":"",children:i.jsx(s.span,{children:"ui/notifications/initialized"})})})})}),i.jsx(s.td,{children:"View → Host"}),i.jsx(s.td,{children:"Initialization complete"})]}),i.jsxs(s.tr,{children:[i.jsx(s.td,{children:i.jsx(s.span,{"data-rehype-pretty-code-figure":"",children:i.jsx(s.code,{"data-language":"plaintext","data-theme":"github-dark-default github-light-default",children:i.jsx(s.span,{"data-line":"",children:i.jsx(s.span,{children:"ui/notifications/size-changed"})})})})}),i.jsx(s.td,{children:"View → Host"}),i.jsx(s.td,{children:"Size changed"})]}),i.jsxs(s.tr,{children:[i.jsx(s.td,{children:i.jsx(s.span,{"data-rehype-pretty-code-figure":"",children:i.jsx(s.code,{"data-language":"plaintext","data-theme":"github-dark-default github-light-default",children:i.jsx(s.span,{"data-line":"",children:i.jsx(s.span,{children:"ui/notifications/tool-input"})})})})}),i.jsx(s.td,{children:"Host → View"}),i.jsx(s.td,{children:"Tool input data"})]}),i.jsxs(s.tr,{children:[i.jsx(s.td,{children:i.jsx(s.span,{"data-rehype-pretty-code-figure":"",children:i.jsx(s.code,{"data-language":"plaintext","data-theme":"github-dark-default github-light-default",children:i.jsx(s.span,{"data-line":"",children:i.jsx(s.span,{children:"ui/notifications/tool-input/partial"})})})})}),i.jsx(s.td,{children:"Host → View"}),i.jsx(s.td,{children:"Streaming input (partial data)"})]}),i.jsxs(s.tr,{children:[i.jsx(s.td,{children:i.jsx(s.span,{"data-rehype-pretty-code-figure":"",children:i.jsx(s.code,{"data-language":"plaintext","data-theme":"github-dark-default github-light-default",children:i.jsx(s.span,{"data-line":"",children:i.jsx(s.span,{children:"ui/notifications/tool-result"})})})})}),i.jsx(s.td,{children:"Host → View"}),i.jsx(s.td,{children:"Tool result"})]}),i.jsxs(s.tr,{children:[i.jsx(s.td,{children:i.jsx(s.span,{"data-rehype-pretty-code-figure":"",children:i.jsx(s.code,{"data-language":"plaintext","data-theme":"github-dark-default github-light-default",children:i.jsx(s.span,{"data-line":"",children:i.jsx(s.span,{children:"ui/notifications/tool-cancelled"})})})})}),i.jsx(s.td,{children:"Host → View"}),i.jsx(s.td,{children:"Tool cancelled"})]}),i.jsxs(s.tr,{children:[i.jsx(s.td,{children:i.jsx(s.span,{"data-rehype-pretty-code-figure":"",children:i.jsx(s.code,{"data-language":"plaintext","data-theme":"github-dark-default github-light-default",children:i.jsx(s.span,{"data-line":"",children:i.jsx(s.span,{children:"ui/notifications/host-context-changed"})})})})}),i.jsx(s.td,{children:"Host → View"}),i.jsx(s.td,{children:"Host context changed"})]})]})]}),`
 `,i.jsx(s.h3,{children:"5.4 Complete Communication Sequence Diagram"}),`
-`,i.jsx(s.figure,{"data-rehype-pretty-code-figure":"",children:i.jsx(s.pre,{tabIndex:"0","data-language":"plaintext","data-theme":"github-dark-default github-light-default",children:i.jsxs(s.code,{"data-language":"plaintext","data-theme":"github-dark-default github-light-default",style:{display:"grid"},children:[i.jsx(s.span,{"data-line":"",children:i.jsx(s.span,{children:"View                          Host                          Server"})}),`
-`,i.jsx(s.span,{"data-line":"",children:i.jsx(s.span,{children:"  │                             │                              │"})}),`
-`,i.jsx(s.span,{"data-line":"",children:i.jsx(s.span,{children:"  │◄────── render iframe ───────│                              │"})}),`
-`,i.jsx(s.span,{"data-line":"",children:i.jsx(s.span,{children:"  │                             │                              │"})}),`
-`,i.jsx(s.span,{"data-line":"",children:i.jsx(s.span,{children:"  │── ui/initialize ──────────►│                              │"})}),`
-`,i.jsx(s.span,{"data-line":"",children:i.jsx(s.span,{children:"  │◄─ {context, capabilities} ──│                              │"})}),`
-`,i.jsx(s.span,{"data-line":"",children:i.jsx(s.span,{children:"  │── ui/notifications/init ──►│                              │"})}),`
-`,i.jsx(s.span,{"data-line":"",children:i.jsx(s.span,{children:"  │                             │                              │"})}),`
-`,i.jsx(s.span,{"data-line":"",children:i.jsx(s.span,{children:"  │◄─ tool-input notification ──│◄───── tool call ────────────│"})}),`
-`,i.jsx(s.span,{"data-line":"",children:i.jsx(s.span,{children:"  │◄─ tool-result notification ─│◄───── tool result ──────────│"})}),`
-`,i.jsx(s.span,{"data-line":"",children:i.jsx(s.span,{children:"  │                             │                              │"})}),`
-`,i.jsx(s.span,{"data-line":"",children:i.jsx(s.span,{children:"  │── tools/call ─────────────►│── tools/call ───────────────►│"})}),`
-`,i.jsx(s.span,{"data-line":"",children:i.jsx(s.span,{children:"  │◄─ result ───────────────────│◄─ result ───────────────────│"})}),`
-`,i.jsx(s.span,{"data-line":"",children:i.jsx(s.span,{children:"  │                             │                              │"})}),`
-`,i.jsx(s.span,{"data-line":"",children:i.jsx(s.span,{children:"  │◄─ ui/resource-teardown ─────│                              │"})}),`
-`,i.jsx(s.span,{"data-line":"",children:i.jsx(s.span,{children:"  │── acknowledgment ──────────►│                              │"})})]})})}),`
+`,i.jsx(s.figure,{"data-rehype-pretty-code-figure":"",children:i.jsx(s.pre,{tabIndex:"0","data-language":"mermaid","data-theme":"github-dark-default github-light-default",children:i.jsxs(s.code,{"data-language":"mermaid","data-theme":"github-dark-default github-light-default",style:{display:"grid"},children:[i.jsx(s.span,{"data-line":"",children:i.jsx(s.span,{style:{"--shiki-dark":"#E6EDF3","--shiki-light":"#1F2328"},children:"sequenceDiagram"})}),`
+`,i.jsx(s.span,{"data-line":"",children:i.jsx(s.span,{style:{"--shiki-dark":"#E6EDF3","--shiki-light":"#1F2328"},children:"    participant V as View (iframe)"})}),`
+`,i.jsx(s.span,{"data-line":"",children:i.jsx(s.span,{style:{"--shiki-dark":"#E6EDF3","--shiki-light":"#1F2328"},children:"    participant H as Host (AppBridge)"})}),`
+`,i.jsx(s.span,{"data-line":"",children:i.jsx(s.span,{style:{"--shiki-dark":"#E6EDF3","--shiki-light":"#1F2328"},children:"    participant S as MCP Server"})}),`
+`,i.jsx(s.span,{"data-line":"",children:" "}),`
+`,i.jsx(s.span,{"data-line":"",children:i.jsx(s.span,{style:{"--shiki-dark":"#E6EDF3","--shiki-light":"#1F2328"},children:"    rect rgb(40, 35, 30)"})}),`
+`,i.jsx(s.span,{"data-line":"",children:i.jsx(s.span,{style:{"--shiki-dark":"#E6EDF3","--shiki-light":"#1F2328"},children:"        Note over V,H: Initialization Phase"})}),`
+`,i.jsx(s.span,{"data-line":"",children:i.jsx(s.span,{style:{"--shiki-dark":"#E6EDF3","--shiki-light":"#1F2328"},children:"        H->>V: render iframe"})}),`
+`,i.jsx(s.span,{"data-line":"",children:i.jsx(s.span,{style:{"--shiki-dark":"#E6EDF3","--shiki-light":"#1F2328"},children:"        V->>H: ui/initialize"})}),`
+`,i.jsx(s.span,{"data-line":"",children:i.jsx(s.span,{style:{"--shiki-dark":"#E6EDF3","--shiki-light":"#1F2328"},children:"        H-->>V: {context, capabilities}"})}),`
+`,i.jsx(s.span,{"data-line":"",children:i.jsx(s.span,{style:{"--shiki-dark":"#E6EDF3","--shiki-light":"#1F2328"},children:"        V->>H: ui/notifications/initialized"})}),`
+`,i.jsx(s.span,{"data-line":"",children:i.jsx(s.span,{style:{"--shiki-dark":"#E6EDF3","--shiki-light":"#1F2328"},children:"    end"})}),`
+`,i.jsx(s.span,{"data-line":"",children:" "}),`
+`,i.jsx(s.span,{"data-line":"",children:i.jsx(s.span,{style:{"--shiki-dark":"#E6EDF3","--shiki-light":"#1F2328"},children:"    rect rgb(35, 40, 35)"})}),`
+`,i.jsx(s.span,{"data-line":"",children:i.jsx(s.span,{style:{"--shiki-dark":"#E6EDF3","--shiki-light":"#1F2328"},children:"        Note over V,S: Data Delivery Phase"})}),`
+`,i.jsx(s.span,{"data-line":"",children:i.jsx(s.span,{style:{"--shiki-dark":"#E6EDF3","--shiki-light":"#1F2328"},children:"        S->>H: tool call"})}),`
+`,i.jsx(s.span,{"data-line":"",children:i.jsx(s.span,{style:{"--shiki-dark":"#E6EDF3","--shiki-light":"#1F2328"},children:"        H->>V: tool-input notification"})}),`
+`,i.jsx(s.span,{"data-line":"",children:i.jsx(s.span,{style:{"--shiki-dark":"#E6EDF3","--shiki-light":"#1F2328"},children:"        S->>H: tool result"})}),`
+`,i.jsx(s.span,{"data-line":"",children:i.jsx(s.span,{style:{"--shiki-dark":"#E6EDF3","--shiki-light":"#1F2328"},children:"        H->>V: tool-result notification"})}),`
+`,i.jsx(s.span,{"data-line":"",children:i.jsx(s.span,{style:{"--shiki-dark":"#E6EDF3","--shiki-light":"#1F2328"},children:"    end"})}),`
+`,i.jsx(s.span,{"data-line":"",children:" "}),`
+`,i.jsx(s.span,{"data-line":"",children:i.jsx(s.span,{style:{"--shiki-dark":"#E6EDF3","--shiki-light":"#1F2328"},children:"    rect rgb(35, 35, 40)"})}),`
+`,i.jsx(s.span,{"data-line":"",children:i.jsx(s.span,{style:{"--shiki-dark":"#E6EDF3","--shiki-light":"#1F2328"},children:"        Note over V,S: Interactive Phase"})}),`
+`,i.jsx(s.span,{"data-line":"",children:i.jsx(s.span,{style:{"--shiki-dark":"#E6EDF3","--shiki-light":"#1F2328"},children:"        V->>H: tools/call"})}),`
+`,i.jsx(s.span,{"data-line":"",children:i.jsx(s.span,{style:{"--shiki-dark":"#E6EDF3","--shiki-light":"#1F2328"},children:"        H->>S: tools/call"})}),`
+`,i.jsx(s.span,{"data-line":"",children:i.jsx(s.span,{style:{"--shiki-dark":"#E6EDF3","--shiki-light":"#1F2328"},children:"        S-->>H: result"})}),`
+`,i.jsx(s.span,{"data-line":"",children:i.jsx(s.span,{style:{"--shiki-dark":"#E6EDF3","--shiki-light":"#1F2328"},children:"        H-->>V: result"})}),`
+`,i.jsx(s.span,{"data-line":"",children:i.jsx(s.span,{style:{"--shiki-dark":"#E6EDF3","--shiki-light":"#1F2328"},children:"    end"})}),`
+`,i.jsx(s.span,{"data-line":"",children:" "}),`
+`,i.jsx(s.span,{"data-line":"",children:i.jsx(s.span,{style:{"--shiki-dark":"#E6EDF3","--shiki-light":"#1F2328"},children:"    rect rgb(40, 30, 30)"})}),`
+`,i.jsx(s.span,{"data-line":"",children:i.jsx(s.span,{style:{"--shiki-dark":"#E6EDF3","--shiki-light":"#1F2328"},children:"        Note over V,H: Teardown Phase"})}),`
+`,i.jsx(s.span,{"data-line":"",children:i.jsx(s.span,{style:{"--shiki-dark":"#E6EDF3","--shiki-light":"#1F2328"},children:"        H->>V: ui/resource-teardown"})}),`
+`,i.jsx(s.span,{"data-line":"",children:i.jsx(s.span,{style:{"--shiki-dark":"#E6EDF3","--shiki-light":"#1F2328"},children:"        V-->>H: acknowledgment"})}),`
+`,i.jsx(s.span,{"data-line":"",children:i.jsx(s.span,{style:{"--shiki-dark":"#E6EDF3","--shiki-light":"#1F2328"},children:"    end"})})]})})}),`
 `,i.jsx(s.hr,{}),`
 `,i.jsx(s.h2,{children:"Part 6: Security Model"}),`
 `,i.jsx(s.h3,{children:"6.1 Multi-Layer Protection"}),`
@@ -373,9 +403,13 @@ import{j as i}from"./index-FZiEhLxM.js";const l={title:"The Complete Guide to MC
 `,i.jsxs(s.p,{children:[i.jsx(s.strong,{children:"Note"}),": ",i.jsx(s.span,{"data-rehype-pretty-code-figure":"",children:i.jsx(s.code,{"data-language":"plaintext","data-theme":"github-dark-default github-light-default",children:i.jsx(s.span,{"data-line":"",children:i.jsx(s.span,{children:"allow-same-origin"})})})})," is necessary for postMessage communication but does not grant the App access to the parent window's DOM."]}),`
 `,i.jsx(s.h3,{children:"6.3 Double iframe Architecture (Recommended)"}),`
 `,i.jsxs(s.p,{children:["For enhanced security, the specification recommends a ",i.jsx(s.strong,{children:"double iframe architecture"}),":"]}),`
-`,i.jsx(s.figure,{"data-rehype-pretty-code-figure":"",children:i.jsx(s.pre,{tabIndex:"0","data-language":"plaintext","data-theme":"github-dark-default github-light-default",children:i.jsxs(s.code,{"data-language":"plaintext","data-theme":"github-dark-default github-light-default",style:{display:"grid"},children:[i.jsx(s.span,{"data-line":"",children:i.jsx(s.span,{children:"Host Window"})}),`
-`,i.jsx(s.span,{"data-line":"",children:i.jsx(s.span,{children:"  └── Sandbox iframe (validates origin)"})}),`
-`,i.jsx(s.span,{"data-line":"",children:i.jsx(s.span,{children:"        └── Resource iframe (runs App)"})})]})})}),`
+`,i.jsx(s.figure,{"data-rehype-pretty-code-figure":"",children:i.jsx(s.pre,{tabIndex:"0","data-language":"mermaid","data-theme":"github-dark-default github-light-default",children:i.jsxs(s.code,{"data-language":"mermaid","data-theme":"github-dark-default github-light-default",style:{display:"grid"},children:[i.jsx(s.span,{"data-line":"",children:i.jsx(s.span,{style:{"--shiki-dark":"#E6EDF3","--shiki-light":"#1F2328"},children:"flowchart TB"})}),`
+`,i.jsx(s.span,{"data-line":"",children:i.jsx(s.span,{style:{"--shiki-dark":"#E6EDF3","--shiki-light":"#1F2328"},children:'    HW["🪟 Host Window"]'})}),`
+`,i.jsx(s.span,{"data-line":"",children:i.jsx(s.span,{style:{"--shiki-dark":"#E6EDF3","--shiki-light":"#1F2328"},children:'    SI["🛡️ Sandbox iframe<br/>(validates origin)"]'})}),`
+`,i.jsx(s.span,{"data-line":"",children:i.jsx(s.span,{style:{"--shiki-dark":"#E6EDF3","--shiki-light":"#1F2328"},children:'    RI["📱 Resource iframe<br/>(runs App)"]'})}),`
+`,i.jsx(s.span,{"data-line":"",children:" "}),`
+`,i.jsx(s.span,{"data-line":"",children:i.jsx(s.span,{style:{"--shiki-dark":"#E6EDF3","--shiki-light":"#1F2328"},children:"    HW --> SI"})}),`
+`,i.jsx(s.span,{"data-line":"",children:i.jsx(s.span,{style:{"--shiki-dark":"#E6EDF3","--shiki-light":"#1F2328"},children:"    SI --> RI"})})]})})}),`
 `,i.jsxs(s.ul,{children:[`
 `,i.jsxs(s.li,{children:[i.jsx(s.strong,{children:"Outer iframe"}),": Acts as security proxy, validates inner message origins"]}),`
 `,i.jsxs(s.li,{children:[i.jsx(s.strong,{children:"Inner iframe"}),": Actually runs the App"]}),`
@@ -959,4 +993,4 @@ import{j as i}from"./index-FZiEhLxM.js";const l={title:"The Complete Guide to MC
 `,i.jsxs(s.ul,{children:[`
 `,i.jsx(s.li,{children:i.jsx(s.a,{href:"https://github.com/modelcontextprotocol/modelcontextprotocol/pull/1865",children:"SEP-1865 PR"})}),`
 `,i.jsx(s.li,{children:i.jsx(s.a,{href:"https://github.com/modelcontextprotocol-community/working-groups/issues/35",children:"Working Group Issue #35"})}),`
-`]})]})}function a(e={}){const{wrapper:s}=e.components||{};return s?i.jsx(s,{...e,children:i.jsx(n,{...e})}):n(e)}export{a as default,l as frontmatter};
+`]})]})}function a(e={}){const{wrapper:s}=e.components||{};return s?i.jsx(s,{...e,children:i.jsx(h,{...e})}):h(e)}export{a as default,l as frontmatter};
