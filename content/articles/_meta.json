@@ -1,6 +1,27 @@
 {
   "articles": [
     {
+      "slug": "mcp-app/02-background",
+      "title": "聊聊 MCP App 的产生背景和当前最新进展",
+      "titleEn": "The Story Behind MCP App: Origins and Latest Developments",
+      "description": "深入剖析 MCP App 为何诞生、如何演进，以及当前的生态现状，帮你理解这项技术背后的来龙去脉",
+      "descriptionEn": "A deep dive into why MCP App was created, how it evolved, and where the ecosystem stands today",
+      "date": "2026-01-29",
+      "tags": [
+        "MCP",
+        "MCP App",
+        "AI Agent",
+        "UI",
+        "Anthropic",
+        "OpenAI"
+      ],
+      "featured": false,
+      "languages": [
+        "zh",
+        "en"
+      ]
+    },
+    {
       "slug": "mcp-app",
       "title": "一文彻底搞懂 MCP App：从协议规范到实战开发",
       "titleEn": "The Complete Guide to MCP Apps: From Protocol Specification to Practical Development",
